@@ -29,25 +29,33 @@
                             <div class="main-card mb-3 card">
                                 <div class="card-body">
                                     <h5 class="card-title">Resultados de Busqueda &nbsp;
-                                       
+
                                     </h5>
                                     <!-- <p class="text-danger">You clicked on: <strong>{{ message }}</strong></p> -->
                                     <div class="table-responsive" id="tablaDetalleProceso">
                                         <table datatable [dtOptions]="dtOptions" [dtTrigger]="dtTrigger"
                                             class="row-border hover">
                                             <thead>
-                                                <tr style="text-align: center;">
-                                                    <th>Código</th>
-                                                    <th>Nombre o Razón Social</th>
-                                                    <th>Monto Deuda</th>
-                                                </tr>
+                                                <th>Cod. Contribuyente</th>
+                                                <th>Cod. Predio</th>
+                                                <th>Año - Periodo</th>
+                                                <th>Insoluto</th>
+                                                <th>Emision</th>
+                                                <th>Factor</th>
+                                                <th>Interes</th>
+                                                <th>Total</th>
                                             </thead>
                                             <tbody>
-                                                <tr *ngFor="let item of dataListado" style="text-align: center;">
-                                                    <td>{{ item.pdc_codcon }}</td>
-                                                    <td>{{ item.pdc_nomcom }}</td>
-                                                    <td>S/ {{ item.pdc_montot | number:
-                                                        '1.2-2' }}</td>
+                                                <tr *ngFor="let item of detalleDeuda" style="text-align: center;">
+                                                    <td >{{ item.pdc_codcon }}</td>
+                                                    <td >{{ item.pdc_codpre }}</td>
+                                                    <td >{{ item.pdc_anytri }} - {{
+                                                        (item.pdc_numper).padStart(2, '0') }}</td>
+                                                    <td >{{ item.pdc_monins }}</td>
+                                                    <td >{{ item.pdc_mongas }}</td>
+                                                    <td >{{ item.pdc_monfac }}</td>
+                                                    <td >{{ item.pdc_monmor }}</td>
+                                                    <td >{{ item.pdc_montot }}</td>
                                                 </tr>
                                             </tbody>
                                         </table>
@@ -68,7 +76,7 @@
                                             (click)="BuscarRegistro()"><i class="pe-7s- btn-icon-wrapper">
                                             </i>Anular</button>
                                         <button class="mb-2 mr-2 btn-icon btn btn-info" id="buscarRegi"
-                                            (click)="verDetalleDeuda()"><i class="pe-7s-document btn-icon-wrapper">
+                                            (click)="verDetalleProceso()"><i class="pe-7s-document btn-icon-wrapper">
                                             </i>Detalle</button>
                                         <button class="mb-2 mr-2 btn-icon btn btn-info" id="buscarRegi"
                                             (click)="BuscarRegistro()"><i class="pe-7s-excel btn-icon-wrapper">

@@ -120,6 +120,10 @@ export class ProcesoComponent implements OnInit {
     this.router.navigate(['/listado-contrib', this.rowSelected[0]]);
   }
 
+  nuevoProceso(){
+    this.router.navigate(['/nuevo-proceso']);
+  }
+
   loadDataProceso() {
     // alert("prueba");
     const data_post = {

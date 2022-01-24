@@ -108,7 +108,7 @@
                                                 <tr *ngFor="let item of dataProceso"
                                                     style="text-align: center;">
                                                     <td >{{item.pdl_id}}</td>
-                                                    <td >{{item.pdl_fecpro | date:'Y-MM-dd'}}
+                                                    <td >{{item.pdl_fecpro | date:'dd-MM-yyyy'}}
                                                     </td>
                                                     <td >{{item.pdl_tipval}}</td>
                                                     <td >{{item.pdl_anoini}}</td>
@@ -132,7 +132,7 @@
                                             (click)="loadDataProceso()"><i class="pe-7s-search btn-icon-wrapper">
                                             </i>Buscar</button>
                                         <button class="mb-2 mr-2 btn-icon btn btn-info" id="buscarRegi"
-                                            (click)="BuscarRegistro()"><i class="pe-7s-plus btn-icon-wrapper">
+                                            (click)="nuevoProceso()"><i class="pe-7s-plus btn-icon-wrapper">
                                             </i>Nuevo</button>
                                         <button class="mb-2 mr-2 btn-icon btn btn-info" id="buscarRegi"
                                             (click)="BuscarRegistro()"><i class="pe-7s- btn-icon-wrapper">
