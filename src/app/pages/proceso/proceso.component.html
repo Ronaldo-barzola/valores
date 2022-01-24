@@ -28,15 +28,15 @@
                                 <div class="col-md-2">
                                     <div class="position-relative form-group">
                                         <label for="fb_fecini">Fec. Inicio </label>
-                                        <input name="fb_fecini" id="fb_fecini" type="date" [(ngModel)]="fb_fecini"
+                                        <input name="fb_fecini" id="fb_fecini" type="date" [ngModel]="fb_fecini | date:'yyyy-MM-dd'"
                                             class="form-control">
                                     </div>
                                 </div>
                                 <div class="col-md-2">
                                     <div class="position-relative form-group">
                                         <label for="fb_fecfin">Fec. Fin </label>
-                                        <input name="fb_fecfin" id="fb_fecfin" type="date" [(ngModel)]="fb_fecfin"
-                                            class="form-control">
+                                        <input name="fb_fecfin" id="fb_fecfin" type="date"
+                                            [ngModel]="fb_fecfin | date:'yyyy-MM-dd'" class="form-control">
                                     </div>
                                 </div>
                                 <div class="col-md-3">
@@ -52,7 +52,7 @@
                                 </div>
                                 <div class="col-md-3">
                                     <div class="position-relative form-group">
-                                        <label for="tipoValor">Tipo de Valor</label>
+                                        <label for="tipoValor">Tipo de Tributo</label>
                                         <select name="tipoValor" id="tipoValor" [(ngModel)]="tipoValor"
                                             class="form-control">
                                             <option value="">Seleccionar</option>
@@ -105,19 +105,18 @@
                                                 </tr>
                                             </thead>
                                             <tbody>
-                                                <tr *ngFor="let item of dataProceso"
-                                                    style="text-align: center;">
-                                                    <td >{{item.pdl_id}}</td>
-                                                    <td >{{item.pdl_fecpro | date:'dd-MM-yyyy'}}
+                                                <tr *ngFor="let item of dataProceso" style="text-align: center;">
+                                                    <td>{{item.pdl_id}}</td>
+                                                    <td>{{item.pdl_fecpro | date:'dd-MM-yyyy'}}
                                                     </td>
-                                                    <td >{{item.pdl_tipval}}</td>
-                                                    <td >{{item.pdl_anoini}}</td>
-                                                    <td >{{item.pdl_anofin}}</td>
-                                                    <td >S/ {{item.pdl_monini | number:
+                                                    <td>{{item.pdl_tipval}}</td>
+                                                    <td>{{item.pdl_anoini}}</td>
+                                                    <td>{{item.pdl_anofin}}</td>
+                                                    <td>S/ {{item.pdl_monini | number:
                                                         '1.2-2'}}</td>
-                                                    <td >S/ {{item.pdl_monfin | number:
+                                                    <td>S/ {{item.pdl_monfin | number:
                                                         '1.2-2'}}</td>
-                                                    <td >{{item.pdl_cancon}}</td>
+                                                    <td>{{item.pdl_cancon}}</td>
                                                 </tr>
                                             </tbody>
                                         </table>

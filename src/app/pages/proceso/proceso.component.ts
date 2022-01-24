@@ -27,8 +27,8 @@ export class ProcesoComponent implements OnInit {
 
 
 
-  fb_fecini: string = "";
-  fb_fecfin: string = "";
+  fb_fecini: Date;
+  fb_fecfin: Date;
   tipoContrib: string = '';
   tipoValor: string = '';
   tipoSector: string = '';
@@ -38,6 +38,8 @@ export class ProcesoComponent implements OnInit {
   dataProceso: any;
   rowSelected: any;
   message = '';
+
+  anios: any;
 
   dtTrigger: Subject<any> = new Subject<any>();
 
@@ -87,17 +89,21 @@ export class ProcesoComponent implements OnInit {
     }
   };
 
+
+
   constructor(
     private api: ApiService,
     private router: Router
   ) {
-
   }
 
   ngOnInit() {
     this.fillTipoContribuyente();
     this.fillTipoValor();
     this.fillTipoSector();
+    this.fb_fecini = new Date();
+    this.fb_fecfin = new Date();
+    this.loadDataProceso();
   }
 
   ngOnDestroy(): void {
@@ -120,7 +126,7 @@ export class ProcesoComponent implements OnInit {
     this.router.navigate(['/listado-contrib', this.rowSelected[0]]);
   }
 
-  nuevoProceso(){
+  nuevoProceso() {
     this.router.navigate(['/nuevo-proceso']);
   }
 
@@ -152,6 +158,8 @@ export class ProcesoComponent implements OnInit {
       }
     });
   }
+
+  
 
   fillTipoContribuyente() {
     const data_post = {

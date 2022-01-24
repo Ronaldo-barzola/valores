@@ -34,6 +34,7 @@
                                                     formControlName="tipoContrib" [(ngModel)]="tipoContrib"
                                                     [ngClass]="{ 'is-invalid': submitted && f.tipoContrib.errors }">
                                                     <option value="">Seleccionar</option>
+                                                    <option value="0">TODOS</option>
                                                     <option *ngFor="let item of dataTipoContribuyente"
                                                         [value]="item.tipcon">
                                                         {{item.descon}}</option>
@@ -48,7 +49,7 @@
                                     </div>
                                     <div class="col-md-3">
                                         <div class="position-relative form-group">
-                                            <label for="tipoValor">Tipo de Valor</label>
+                                            <label for="tipoValor">Tipo de Tributo</label>
                                             <select name="tipoValor" id="tipoValor" [(ngModel)]="tipoValor"
                                                 class="form-control" formControlName="tipoValor"
                                                 [ngClass]="{ 'is-invalid': submitted && f.tipoValor.errors }">
@@ -66,15 +67,37 @@
                                     <div class="col-md-1">
                                         <div class="position-relative form-group">
                                             <label for="anioDesde">Años a Procesar</label>
-                                            <input formControlName="anioDesde" type="text" class="form-control"
-                                                [(ngModel)]="anioDesde">
+                                            <select class="form-control" [(ngModel)]="anioDesde"
+                                                formControlName="anioDesde"
+                                                [ngClass]="{ 'is-invalid': submitted && f.anioDesde.errors }">
+                                                <option value="" selected>--</option>
+                                                <option *ngFor="let item of anios" [value]="item.anio">
+                                                    {{item.anio}}</option>
+                                            </select>
+                                            <div class="invalid-feedback" *ngIf="submitted && f.anioDesde.errors">
+                                                <div *ngIf="f.anioDesde.errors.required">
+                                                    Seleccione una opción
+                                                </div>
+                                            </div>
+                                            <!-- <input formControlName="anioDesde" type="text" class="form-control"
+                                                [(ngModel)]="anioDesde"> -->
                                         </div>
                                     </div>
                                     <div class="col-md-1">
                                         <div class="position-relative form-group">
                                             <label for="anioHasta">&nbsp;</label>
-                                            <input formControlName="anioHasta" type="text" class="form-control"
-                                                [(ngModel)]="anioHasta">
+                                            <select class="form-control" [(ngModel)]="anioHasta"
+                                                formControlName="anioHasta"
+                                                [ngClass]="{ 'is-invalid': submitted && f.anioHasta.errors }">
+                                                <option value="" selected>--</option>
+                                                <option *ngFor="let item of anios" [value]="item.anio">
+                                                    {{item.anio}}</option>
+                                            </select>
+                                            <div class="invalid-feedback" *ngIf="submitted && f.anioHasta.errors">
+                                                <div *ngIf="f.anioHasta.errors.required">
+                                                    Seleccione una opción
+                                                </div>
+                                            </div>
                                         </div>
                                     </div>
                                     <div class="col-md-4">
@@ -119,7 +142,7 @@
                                     <div class="col-md-12">
                                         <p class="text-left">
                                             <button type="button"
-                                                class="mb-2 mr-2 btn-icon btn btn-info btn btn-info">Cancelar</button>
+                                            (click)="regresarProceso()" class="mb-2 mr-2 btn-icon btn btn-info btn btn-info">Cancelar</button>
                                             <button
                                                 class="mb-2 mr-2 btn-icon btn btn-info btn btn-info">Guardar</button>
 
