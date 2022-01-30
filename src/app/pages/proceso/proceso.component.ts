@@ -206,5 +206,9 @@ export class ProcesoComponent implements OnInit {
     });
   }
 
+  anulaRegistro(){
+    console.log('Anula registro');
+  }
+
 }
 

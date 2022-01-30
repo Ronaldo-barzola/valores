@@ -98,6 +98,10 @@ export class ListadoContribLoteComponent implements OnInit {
     btnExcel.click();
   }
 
+  anulaRegistro(){
+    console.log('Anula registro');
+  }
+
   detalleProceso() {
     const data_post = {
       p_elcnid: this.paramNumProceso,

@@ -169,6 +169,10 @@ export class LoteComponent implements OnInit {
     });
   }
 
+  anulaRegistro(){
+    console.log('Anula registro');
+  }
+
   fillTipoContribuyente() {
     const data_post = {
       p_tipcon: 0,
