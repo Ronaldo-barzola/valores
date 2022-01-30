@@ -21,17 +21,20 @@ export class DetalleDeudaComponent implements OnInit {
   paramCodContrib: any;
   detalleDeuda: any;
 
-  dtOptions: DataTables.Settings = {
+
+  dtOptions: any = {
     pagingType: 'full_numbers',
-    // pageLength: 10,
-    // dom: 'Bfrtip',
-    // select: true,
+    dom: 'Bfrtip',
+    buttons: [
+      'excel'
+    ],
+    select: true,
+    processing: true,
     responsive: true,
     language: {
       processing: "Procesando...",
-
       search: "Buscar:",
-      lengthMenu: "Mostrar _MENU_ &eacute;l&eacute;ments",
+      lengthMenu: "Mostrar _MENU_ &eacute;l&eacute;mentos",
       info: "Mostrando desde _START_ al _END_ de _TOTAL_ elementos",
       infoEmpty: "Mostrando ningún elemento.",
       infoFiltered: "(filtrado _MAX_ elementos total)",
@@ -39,6 +42,13 @@ export class DetalleDeudaComponent implements OnInit {
       loadingRecords: "Cargando registros...",
       zeroRecords: "No se encontraron registros",
       emptyTable: "No hay datos disponibles en la tabla",
+      select: {
+        rows: {
+          _: "Selected %d rows",
+          0: "Click a row to select it",
+          1: "Proceso seleccionado",
+        },
+      },
       paginate: {
         first: "Primero",
         previous: "Anterior",
@@ -54,12 +64,9 @@ export class DetalleDeudaComponent implements OnInit {
 
   dtTrigger: Subject<any> = new Subject<any>();
 
-  constructor(
-    private api: ApiService, private router: Router, private route: ActivatedRoute
-  ) { }
+  constructor(private api: ApiService, private router: Router, private route: ActivatedRoute) {}
 
   ngOnInit() {
-
     this.paramNumProceso = this.route.snapshot.params.numpro;
     this.paramCodContrib = this.route.snapshot.params.numcon;
     this.listarDetalleDeuda();
@@ -73,6 +80,11 @@ export class DetalleDeudaComponent implements OnInit {
     this.dtTrigger.next();
   }
 
+  descargaExcel(){
+    let btnExcel = document.querySelector('#tablaDetalleProceso .dt-buttons .dt-button.buttons-excel.buttons-html5') as HTMLButtonElement;
+
+    btnExcel.click();
+  }
 
   listarDetalleDeuda() {
     const data_post = {

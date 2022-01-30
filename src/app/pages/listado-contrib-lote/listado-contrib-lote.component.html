@@ -4,9 +4,9 @@
             <div class="page-title-wrapper">
                 <div class="page-title-heading">
                     <div class="page-title-icon">
-                        <i class="pe-7s-cash" style="color:#59c3b7;"></i>
+                        <i class="pe-7s-box2" style="color:#59c3b7;"></i>
                     </div>
-                    <div>Proceso de Deuda - Detalle de Deuda</div>
+                    <div>Generación de Lotes - Listado de Contribuyentes</div>
                 </div>
             </div>
         </div>
@@ -23,26 +23,16 @@
                                 <table datatable [dtOptions]="dtOptions" [dtTrigger]="dtTrigger" class="row-border hover">
                                     <thead>
                                         <tr style="text-align: center;">
-                                            <th>Cod. Contribuyente</th>
-                                            <th>Cod. Predio</th>
-                                            <th>Año - Periodo</th>
-                                            <th>Insoluto</th>
-                                            <th>Emision</th>
-                                            <th>Factor</th>
-                                            <th>Interes</th>
-                                            <th>Total</th>
+                                            <th>Código</th>
+                                            <th>Nombre o Razón Social</th>
+                                            <th>Monto Deuda</th>
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        <tr *ngFor="let item of detalleDeuda" style="text-align: center;">
-                                            <td >{{ item.pdc_codcon }}</td>
-                                            <td >{{ item.pdc_codpre }}</td>
-                                            <td >{{ item.pdc_anytri }} - {{(item.pdc_numper).padStart(2, '0') }}</td>
-                                            <td >{{ item.pdc_monins }}</td>
-                                            <td >{{ item.pdc_mongas }}</td>
-                                            <td >{{ item.pdc_monfac }}</td>
-                                            <td >{{ item.pdc_monmor }}</td>
-                                            <td >{{ item.pdc_montot }}</td>
+                                        <tr *ngFor="let item of dataListado" style="text-align: center;">
+                                            <td>{{ item.eld_codcon }}</td>
+                                            <td>{{ item.pdc_nomcom }}</td>
+                                            <td>S/ {{ item.eld_montot | number: '1.2-2' }}</td>
                                         </tr>
                                     </tbody>
                                 </table>
@@ -50,6 +40,8 @@
                             <div class="form-row">
                                 <div class="col-md-12">
                                     <p class="text-left">
+                                        <button class="mb-2 mr-2 btn-icon btn btn-info-mdsb" id="anularProceso" (click)="anularRegistro()"><i class="pe-7s-trash btn-icon-wrapper"></i>Anular</button>
+                                        <button class="mb-2 mr-2 btn-icon btn btn-info-mdsb" id="detalleProceso" (click)="verDetalleDeuda()"><i class="pe-7s-note2 btn-icon-wrapper"></i>Detalle</button>
                                         <button class="mb-2 mr-2 btn-icon btn btn-info-mdsb" id="descargaProceso" (click)="descargaExcel()"><i class="pe-7s-cloud-download btn-icon-wrapper"></i>Excel</button>
                                     </p>
                                 </div>
@@ -60,7 +52,6 @@
             </div>
         </div>
     </div>
-
     <div class="app-wrapper-footer">
         <div class="app-footer">
             <div class="app-footer__inner">

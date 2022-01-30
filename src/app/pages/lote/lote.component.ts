@@ -7,11 +7,11 @@ import { Subject } from 'rxjs';
 import { analyzeAndValidateNgModules } from '@angular/compiler';
 
 @Component({
-  selector: 'app-proceso',
-  templateUrl: './proceso.component.html',
+  selector: 'app-lote',
+  templateUrl: './lote.component.html',
   styles: []
 })
-export class ProcesoComponent implements OnInit {
+export class LoteComponent implements OnInit {
 
   @ViewChild(DataTableDirective, { static: false })
   dtElement: DataTableDirective;
@@ -19,11 +19,6 @@ export class ProcesoComponent implements OnInit {
   varTmpDisplayCreaReg: string = 'inline-block';
   modalRef: BsModalRef;
   idvisSEL: string = '';
-
-
-  // dtOptions: DataTables.Settings = {};
-
-
 
   fb_fecini: Date;
   fb_fecfin: Date;
@@ -137,11 +132,11 @@ export class ProcesoComponent implements OnInit {
 
   verDetalleProceso() {
     console.log(this.rowSelected[0]);
-    this.router.navigate(['/listado-contrib', this.rowSelected[0]]);
+    this.router.navigate(['/listado-contrib-lote', this.rowSelected[0]]);
   }
 
   nuevoProceso() {
-    this.router.navigate(['/nuevo-proceso']);
+    this.router.navigate(['/nuevo-lote']);
   }
 
   loadDataProceso() {
@@ -153,7 +148,7 @@ export class ProcesoComponent implements OnInit {
       p_sector: this.tipoContrib,
     };
 
-    this.api.getDataProceso(data_post).subscribe((data: any) => {
+    this.api.getDataLoteListar(data_post).subscribe((data: any) => {
       console.log(data);
       let btnExportaExcel = document.getElementById('descargaProceso') as HTMLButtonElement;
       
@@ -207,4 +202,3 @@ export class ProcesoComponent implements OnInit {
   }
 
 }
-

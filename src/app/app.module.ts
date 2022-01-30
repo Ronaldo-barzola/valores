@@ -16,6 +16,10 @@ import { ProcesoComponent } from './pages/proceso/proceso.component';
 import { ListadoContribComponent } from './pages/listado-contrib/listado-contrib.component';
 import { DetalleDeudaComponent } from './pages/detalle-deuda/detalle-deuda.component';
 import { NuevoProcesoComponent } from './pages/nuevo-proceso/nuevo-proceso.component';
+import { LoteComponent } from './pages/lote/lote.component';
+import { NuevoLoteComponent } from './pages/nuevo-lote/nuevo-lote.component';
+import { ListadoContribLoteComponent } from './pages/listado-contrib-lote/listado-contrib-lote.component';
+import { DetalleDeudaLoteComponent } from './pages/detalle-deuda-lote/detalle-deuda-lote.component';
 
 @NgModule({
   declarations: [
@@ -29,6 +33,10 @@ import { NuevoProcesoComponent } from './pages/nuevo-proceso/nuevo-proceso.compo
     ListadoContribComponent,
     DetalleDeudaComponent,
     NuevoProcesoComponent,
+    LoteComponent,
+    NuevoLoteComponent,
+    ListadoContribLoteComponent,
+    DetalleDeudaLoteComponent,
   ],
   imports: [
     BrowserModule,

@@ -5,11 +5,11 @@ import { DataTableDirective } from 'angular-datatables';
 import { Subject } from 'rxjs';
 
 @Component({
-  selector: 'app-listado-contrib',
-  templateUrl: './listado-contrib.component.html',
-  styleUrls: []
+  selector: 'app-listado-contrib-lote',
+  templateUrl: './listado-contrib-lote.component.html',
+  styles: []
 })
-export class ListadoContribComponent implements OnInit {
+export class ListadoContribLoteComponent implements OnInit {
 
   @ViewChild(DataTableDirective, { static: false })
   dtElement: DataTableDirective;
@@ -100,10 +100,10 @@ export class ListadoContribComponent implements OnInit {
 
   detalleProceso() {
     const data_post = {
-      p_pdlnid: this.paramNumProceso,
+      p_elcnid: this.paramNumProceso,
     };
 
-    this.api.getDataDeudaContri(data_post).subscribe((data: any) => {
+    this.api.getDataLoteListadoContrib(data_post).subscribe((data: any) => {
       if (data.length != 0) {
         this.dataListado = data;
         this.dtElement.dtInstance.then((dtInstance: DataTables.Api) => {
@@ -122,7 +122,6 @@ export class ListadoContribComponent implements OnInit {
 
   verDetalleDeuda() {
     console.log(this.rowSelected);
-    this.router.navigate(['/detalle-deuda', this.paramNumProceso, this.rowSelected[0]]);
+    this.router.navigate(['/detalle-deuda-lote', this.paramNumProceso, this.rowSelected[0]]);
   }
-
 }

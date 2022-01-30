@@ -5,11 +5,11 @@ import { DataTableDirective } from 'angular-datatables';
 import { Subject } from 'rxjs';
 
 @Component({
-  selector: 'app-listado-contrib',
-  templateUrl: './listado-contrib.component.html',
-  styleUrls: []
+  selector: 'app-detalle-deuda-lote',
+  templateUrl: './detalle-deuda-lote.component.html',
+  styles: []
 })
-export class ListadoContribComponent implements OnInit {
+export class DetalleDeudaLoteComponent implements OnInit {
 
   @ViewChild(DataTableDirective, { static: false })
   dtElement: DataTableDirective;
@@ -18,8 +18,8 @@ export class ListadoContribComponent implements OnInit {
   idvisSEL: string = '';
 
   paramNumProceso: any;
-  dataListado: any;
-  rowSelected: any;
+  paramCodContrib: any;
+  detalleDeuda: any;
 
 
   dtOptions: any = {
@@ -31,16 +31,6 @@ export class ListadoContribComponent implements OnInit {
     select: true,
     processing: true,
     responsive: true,
-    rowCallback: (row: Node, data: any[] | Object, index: number) => {
-      const self = this;
-      $('td', row).off('click');
-      $('td', row).on('click', () => {
-        this.rowSelected = data;
-        let btnDetalleProceso = document.getElementById('detalleProceso') as HTMLButtonElement;
-        btnDetalleProceso.disabled = false;
-      });
-      return row;
-    },
     language: {
       processing: "Procesando...",
       search: "Buscar:",
@@ -74,14 +64,12 @@ export class ListadoContribComponent implements OnInit {
 
   dtTrigger: Subject<any> = new Subject<any>();
 
-  constructor(private api: ApiService, private route: ActivatedRoute, private router: Router) { }
+  constructor(private api: ApiService, private router: Router, private route: ActivatedRoute) {}
 
   ngOnInit() {
-    let btnDetalleProceso = document.getElementById('detalleProceso') as HTMLButtonElement;
-    btnDetalleProceso.disabled = true;
-
     this.paramNumProceso = this.route.snapshot.params.numpro;
-    this.detalleProceso();
+    this.paramCodContrib = this.route.snapshot.params.numcon;
+    this.listarDetalleDeuda();
   }
 
   ngOnDestroy(): void {
@@ -98,31 +86,27 @@ export class ListadoContribComponent implements OnInit {
     btnExcel.click();
   }
 
-  detalleProceso() {
+  listarDetalleDeuda() {
     const data_post = {
-      p_pdlnid: this.paramNumProceso,
+      p_elcnid: this.paramNumProceso,
+      p_codcon: this.paramCodContrib
     };
 
-    this.api.getDataDeudaContri(data_post).subscribe((data: any) => {
+    this.api.getDataLoteDeudaContrib(data_post).subscribe((data: any) => {
       if (data.length != 0) {
-        this.dataListado = data;
+        this.detalleDeuda = data;
         this.dtElement.dtInstance.then((dtInstance: DataTables.Api) => {
           dtInstance.destroy();
           this.dtTrigger.next();
         });
       } else {
-        this.dataListado = [];
+        this.detalleDeuda = [];
         this.dtElement.dtInstance.then((dtInstance: DataTables.Api) => {
           dtInstance.destroy();
           this.dtTrigger.next();
         });
       }
     });
-  }
-
-  verDetalleDeuda() {
-    console.log(this.rowSelected);
-    this.router.navigate(['/detalle-deuda', this.paramNumProceso, this.rowSelected[0]]);
   }
 
 }

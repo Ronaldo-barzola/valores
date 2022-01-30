@@ -6,7 +6,7 @@
                     <div class="page-title-icon">
                         <i class="pe-7s-cash" style="color:#59c3b7;"></i>
                     </div>
-                    <div>Proceso de Deuda - Detalle de Deuda</div>
+                    <div>Generación de Lotes - Detalle de Deuda</div>
                 </div>
             </div>
         </div>
@@ -35,14 +35,14 @@
                                     </thead>
                                     <tbody>
                                         <tr *ngFor="let item of detalleDeuda" style="text-align: center;">
-                                            <td >{{ item.pdc_codcon }}</td>
-                                            <td >{{ item.pdc_codpre }}</td>
-                                            <td >{{ item.pdc_anytri }} - {{(item.pdc_numper).padStart(2, '0') }}</td>
-                                            <td >{{ item.pdc_monins }}</td>
-                                            <td >{{ item.pdc_mongas }}</td>
-                                            <td >{{ item.pdc_monfac }}</td>
-                                            <td >{{ item.pdc_monmor }}</td>
-                                            <td >{{ item.pdc_montot }}</td>
+                                            <td >{{ item.eld_codcon }}</td>
+                                            <td >{{ item.eld_codpre }}</td>
+                                            <td >{{ item.eld_anytri }} - {{(item.eld_numper).padStart(2, '0') }}</td>
+                                            <td >{{ item.eld_monins }}</td>
+                                            <td >{{ item.eld_mongas }}</td>
+                                            <td >{{ item.eld_monfac }}</td>
+                                            <td >{{ item.eld_monmor }}</td>
+                                            <td >{{ item.eld_montot }}</td>
                                         </tr>
                                     </tbody>
                                 </table>

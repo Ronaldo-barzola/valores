@@ -4,9 +4,9 @@
             <div class="page-title-wrapper">
                 <div class="page-title-heading">
                     <div class="page-title-icon">
-                        <i class="pe-7s-cash" style="color:#59c3b7;"></i>
+                        <i class="pe-7s-box2" style="color:#59c3b7;"></i>
                     </div>
-                    <div>Proceso de Deuda - Busqueda</div>
+                    <div>Generación de Lotes - Busqueda</div>
                 </div>
             </div>
         </div>
@@ -93,14 +93,14 @@
                                     </thead>
                                     <tbody>
                                         <tr *ngFor="let item of dataProceso" style="text-align: center;">
-                                            <td>{{item.pdl_id}}</td>
-                                            <td>{{item.pdl_fecpro | date:'dd-MM-yyyy'}}</td>
-                                            <td>{{item.pdl_tipval}}</td>
-                                            <td>{{item.pdl_anoini}}</td>
-                                            <td>{{item.pdl_anofin}}</td>
-                                            <td>S/ {{item.pdl_monini | number: '1.2-2'}}</td>
-                                            <td>S/ {{item.pdl_monfin | number: '1.2-2'}}</td>
-                                            <td>{{item.pdl_cancon}}</td>
+                                            <td>{{item.elc_id}}</td>
+                                            <td>{{item.elc_fecpro | date:'dd-MM-yyyy'}}</td>
+                                            <td>{{item.elc_tipval}}</td>
+                                            <td>{{item.elc_anoini}}</td>
+                                            <td>{{item.elc_anofin}}</td>
+                                            <td>S/ {{item.elc_monini | number: '1.2-2'}}</td>
+                                            <td>S/ {{item.elc_monfin | number: '1.2-2'}}</td>
+                                            <td>{{item.elc_cancon}}</td>
                                         </tr>
                                     </tbody>
                                 </table>

@@ -1,4 +1,4 @@
-<div class="app-header header-shadow bg-info header-text-light">
+<div class="app-header header-shadow header-text-light" style="background-color:#59c3b7;">
     <div class="app-header__logo">
         <div class="logo-src"></div>
         <div class="header__pane ml-auto">
@@ -31,232 +31,8 @@
     </div>
     <div class="app-header__content">
         <div class="app-header-right">
-            <div class="header-dots">
-                <div class="dropdown">
-                    <button type="button" aria-haspopup="true" aria-expanded="false" data-toggle="dropdown" class="p-0 mr-2 btn btn-link">
-                        <span class="icon-wrapper icon-wrapper-alt rounded-circle">
-                            <span class="icon-wrapper-bg bg-primary"></span>
-                            <i class="icon text-primary ion-android-apps"></i>
-                        </span>
-                    </button>
-                    <div tabindex="-1" role="menu" aria-hidden="true" class="dropdown-menu-xl rm-pointers dropdown-menu dropdown-menu-right">
-                        <div class="dropdown-menu-header">
-                            <div class="dropdown-menu-header-inner bg-focus">
-                                <div class="menu-header-image" style="background-image: url('assets/images/muni/frontis.webp');"></div>
-                                <div class="menu-header-content text-white">
-                                    <h5 class="menu-header-title">Mis Aplicaciones</h5>
-                                    <h6 class="menu-header-subtitle">Acceso directo a aplicaciones de la municipalidad.</h6>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="grid-menu grid-menu-xl grid-menu-3col">
-                            <div class="no-gutters row">
-                                <div class="col-sm-6 col-xl-4">
-                                    <button class="btn-icon-vertical btn-square btn-transition btn btn-outline-link">
-                                        <i class="pe-7s-world icon-gradient bg-night-fade btn-icon-wrapper btn-icon-lg mb-3"></i>
-                                        Automation
-                                    </button>
-                                </div>
-                                <div class="col-sm-6 col-xl-4">
-                                    <button class="btn-icon-vertical btn-square btn-transition btn btn-outline-link">
-                                        <i class="pe-7s-piggy icon-gradient bg-night-fade btn-icon-wrapper btn-icon-lg mb-3"> </i>
-                                        Reports
-                                    </button>
-                                </div>
-                                <div class="col-sm-6 col-xl-4">
-                                    <button class="btn-icon-vertical btn-square btn-transition btn btn-outline-link">
-                                        <i class="pe-7s-config icon-gradient bg-night-fade btn-icon-wrapper btn-icon-lg mb-3"> </i>
-                                        Settings
-                                    </button>
-                                </div>
-                                <div class="col-sm-6 col-xl-4">
-                                    <button class="btn-icon-vertical btn-square btn-transition btn btn-outline-link">
-                                        <i class="pe-7s-browser icon-gradient bg-night-fade btn-icon-wrapper btn-icon-lg mb-3"> </i>
-                                        Content
-                                    </button>
-                                </div>
-                                <div class="col-sm-6 col-xl-4">
-                                    <button class="btn-icon-vertical btn-square btn-transition btn btn-outline-link">
-                                        <i class="pe-7s-hourglass icon-gradient bg-night-fade btn-icon-wrapper btn-icon-lg mb-3"> </i>
-                                        Activity
-                                    </button>
-                                </div>
-                                <div class="col-sm-6 col-xl-4">
-                                    <button class="btn-icon-vertical btn-square btn-transition btn btn-outline-link">
-                                        <i class="pe-7s-world icon-gradient bg-night-fade btn-icon-wrapper btn-icon-lg mb-3"> </i>
-                                        Contacts
-                                    </button>
-                                </div>
-                            </div>
-                        </div>
-                        <ul class="nav flex-column">
-                            <li class="nav-item-divider nav-item"></li>
-                            <li class="nav-item-btn text-center nav-item">
-                                <button class="btn-shadow btn btn-primary btn-sm">Follow-ups</button>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="dropdown">
-                    <button type="button" aria-haspopup="true" aria-expanded="false" data-toggle="dropdown" class="p-0 mr-2 btn btn-link">
-                        <span class="icon-wrapper icon-wrapper-alt rounded-circle">
-                            <span class="icon-wrapper-bg bg-danger"></span>
-                            <i class="icon text-danger icon-anim-pulse ion-android-notifications"></i>
-                            <span class="badge badge-dot badge-dot-sm badge-danger">Notificaciones</span>
-                        </span>
-                    </button>
-                    <div tabindex="-1" role="menu" aria-hidden="true" class="dropdown-menu-xl rm-pointers dropdown-menu dropdown-menu-right">
-                        <div class="dropdown-menu-header mb-0">
-                            <div class="dropdown-menu-header-inner bg-focus">
-                                <div class="menu-header-image" style="background-image: url('assets/images/muni/notif.jpg');"></div>
-                                <div class="menu-header-content text-white">
-                                    <h5 class="menu-header-title">Notificaciones</h5>
-                                    <h6 class="menu-header-subtitle">Tienes <b>21</b> mensajes sin leer.</h6>
-                                </div>
-                            </div>
-                        </div>
-                        <ul class="tabs-animated-shadow tabs-animated nav nav-justified tabs-shadow-bordered p-3">
-                            <li class="nav-item">
-                                <a role="tab" class="nav-link active" data-toggle="tab" href="#tab-messages-header">
-                                    <span>Mensajes</span>
-                                </a>
-                            </li>
-                            <li class="nav-item">
-                                <a role="tab" class="nav-link" data-toggle="tab" href="#tab-events-header">
-                                    <span>Eventos</span>
-                                </a>
-                            </li>
-                            <li class="nav-item">
-                                <a role="tab" class="nav-link" data-toggle="tab" href="#tab-errors-header">
-                                    <span>Soporte</span>
-                                </a>
-                            </li>
-                        </ul>
-                        <div class="tab-content">
-                            <div class="tab-pane active" id="tab-messages-header" role="tabpanel">
-                                <div class="scroll-area-sm">
-                                    <div class="scrollbar-container">
-                                        <div class="p-3">
-                                            <div class="notifications-box">
-                                                <div class="vertical-time-simple vertical-without-time vertical-timeline vertical-timeline--one-column">
-                                                    <div class="vertical-timeline-item dot-danger vertical-timeline-element">
-                                                        <div><span class="vertical-timeline-element-icon bounce-in"></span>
-                                                            <div class="vertical-timeline-element-content bounce-in"><h4 class="timeline-title"><a href="#">Mensaje de Prueba 1</a><span class="badge badge-danger ml-2">Nuevo</span></h4><span class="vertical-timeline-element-date"></span></div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="vertical-timeline-item dot-warning vertical-timeline-element">
-                                                        <div><span class="vertical-timeline-element-icon bounce-in"></span>
-                                                            <div class="vertical-timeline-element-content bounce-in"><h4 class="timeline-title"><a href="#">Mensaje de Prueba 2</a></h4><span class="vertical-timeline-element-date"></span></div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="vertical-timeline-item dot-success vertical-timeline-element">
-                                                        <div><span class="vertical-timeline-element-icon bounce-in"></span>
-                                                            <div class="vertical-timeline-element-content bounce-in"><h4 class="timeline-title"><a href="#">Mensaje de Prueba 3</a></h4><span class="vertical-timeline-element-date"></span></div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="vertical-timeline-item dot-info vertical-timeline-element">
-                                                        <div><span class="vertical-timeline-element-icon bounce-in"></span>
-                                                            <div class="vertical-timeline-element-content bounce-in"><h4 class="timeline-title"><a href="#">Mensaje de Prueba 4</a></h4><span class="vertical-timeline-element-date"></span></div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="vertical-timeline-item dot-danger vertical-timeline-element">
-                                                        <div><span class="vertical-timeline-element-icon bounce-in"></span>
-                                                            <div class="vertical-timeline-element-content bounce-in"><h4 class="timeline-title"><a href="#">Mensaje de Prueba 5</a><span class="badge badge-danger ml-2">Nuevo</span></h4><span class="vertical-timeline-element-date"></span></div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="vertical-timeline-item dot-warning vertical-timeline-element">
-                                                        <div><span class="vertical-timeline-element-icon bounce-in"></span>
-                                                            <div class="vertical-timeline-element-content bounce-in"><h4 class="timeline-title"><a href="#">Mensaje de Prueba 6</a></h4><span class="vertical-timeline-element-date"></span></div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="vertical-timeline-item dot-success vertical-timeline-element">
-                                                        <div><span class="vertical-timeline-element-icon bounce-in"></span>
-                                                            <div class="vertical-timeline-element-content bounce-in"><h4 class="timeline-title"><a href="#">Mensaje de Prueba 7</a></h4><span class="vertical-timeline-element-date"></span></div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="vertical-timeline-item dot-dark vertical-timeline-element">
-                                                        <div><span class="vertical-timeline-element-icon bounce-in"></span>
-                                                            <div class="vertical-timeline-element-content bounce-in"><h4 class="timeline-title"><a href="#">Mensaje de Prueba 8</a></h4><span class="vertical-timeline-element-date"></span></div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="tab-pane" id="tab-events-header" role="tabpanel">
-                                <div class="scroll-area-sm">
-                                    <div class="scrollbar-container">
-                                        <div class="p-3">
-                                            <div class="vertical-without-time vertical-timeline vertical-timeline--animate vertical-timeline--one-column">
-                                                <div class="vertical-timeline-item vertical-timeline-element">
-                                                    <div><span class="vertical-timeline-element-icon bounce-in"><i class="badge badge-dot badge-dot-xl badge-success"> </i></span>
-                                                        <div class="vertical-timeline-element-content bounce-in">
-                                                            <a href="#">
-                                                                <h4 class="timeline-title">Reunión con Informática</h4>
-                                                                <p>Lorem ipsum dolor sic amet, today at <strong>12:00 PM</strong></p><span class="vertical-timeline-element-date"></span>
-                                                            </a>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="vertical-timeline-item vertical-timeline-element">
-                                                    <div><span class="vertical-timeline-element-icon bounce-in"><i class="badge badge-dot badge-dot-xl badge-success"> </i></span>
-                                                        <div class="vertical-timeline-element-content bounce-in">
-                                                            <a href="#">
-                                                                <h4 class="timeline-title">Reunión con Informática</h4>
-                                                                <p>Lorem ipsum dolor sic amet, today at <strong>09:00 AM</strong></p><span class="vertical-timeline-element-date"></span>
-                                                            </a>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="vertical-timeline-item vertical-timeline-element">
-                                                    <div><span class="vertical-timeline-element-icon bounce-in"><i class="badge badge-dot badge-dot-xl badge-success"> </i></span>
-                                                        <div class="vertical-timeline-element-content bounce-in">
-                                                            <a href="#">
-                                                                <h4 class="timeline-title">Reunión con Transporte</h4>
-                                                                <p>Lorem ipsum dolor sic amet, today at <strong>03:00 PM</strong></p><span class="vertical-timeline-element-date"></span>
-                                                            </a>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="vertical-timeline-item vertical-timeline-element">
-                                                    <div><span class="vertical-timeline-element-icon bounce-in"><i class="badge badge-dot badge-dot-xl badge-success"> </i></span>
-                                                        <div class="vertical-timeline-element-content bounce-in">
-                                                            <a href="#">
-                                                                <h4 class="timeline-title">Reunión con Alcaldia</h4>
-                                                                <p>Lorem ipsum dolor sic amet, today at <strong>10:00 AM</strong></p><span class="vertical-timeline-element-date"></span>
-                                                            </a>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="tab-pane" id="tab-errors-header" role="tabpanel">
-                                <div class="scroll-area-sm">
-                                    <div class="scrollbar-container">
-                                        <div class="no-results pt-3 pb-0">
-                                            <i class="pe-7s-info" style="font-size: 100px;margin-bottom: 20px;color:#22A6FB;"></i>
-                                            <div class="results-subtitle">Sin Tickets</div>
-                                            <div class="results-title">Aún no ha abierto tickets de atención.</div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <ul class="nav flex-column">
-                            <li class="nav-item-divider nav-item"></li>
-                            <li class="nav-item-btn text-center nav-item">
-                                <button class="btn-shadow btn-wide btn-pill btn btn-focus btn-sm">Ver Todas</button>
-                            </li>
-                        </ul>
-                    </div>
-                </div>              
+            <div class="header-dots">           
             </div>
-            
             <div class="header-btn-lg pr-0">
                 <div class="widget-content p-0">
                     <div class="widget-content-wrapper">
@@ -277,7 +53,7 @@
                                                             <img width="42" class="rounded-circle" src="assets/images/avatars/2.jpg" alt="">
                                                         </div>
                                                         <div class="widget-content-left">
-                                                            <div class="widget-heading" style="color:#FFF;opacity: 1;">Josue Pajuelo</div>
+                                                            <div class="widget-heading" style="color:#FFF;opacity: 1;">Usuario de Prueba</div>
                                                             <div class="widget-subheading" style="color:#FFF;opacity: 1;">Desarrollador de Aplicaciones</div>
                                                         </div>
                                                         <div class="widget-content-right mr-2">
@@ -311,18 +87,13 @@
                             </div>
                         </div>
                         <div class="widget-content-left  ml-3 header-user-info">
-                            <div class="widget-heading">Josue Pajuelo</div>
+                            <div class="widget-heading">Usuario de Prueba</div>
                             <div class="widget-subheading">Desarrollador de Aplicaciones</div>
                         </div>
                     </div>
                 </div>
             </div>
             <div class="header-btn-lg">
-                <button type="button" class="hamburger hamburger--elastic open-right-drawer">
-                    <span class="hamburger-box">
-                        <span class="hamburger-inner"></span>
-                    </span>
-                </button>
             </div>
           </div>
     </div>

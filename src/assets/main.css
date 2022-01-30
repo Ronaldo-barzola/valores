@@ -3956,6 +3956,7 @@ textarea.form-control.is-invalid {
 
 .btn.disabled,
 .btn:disabled {
+	cursor:not-allowed;
 	opacity: .65
 }
 

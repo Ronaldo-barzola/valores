@@ -5,11 +5,11 @@ import { Router } from '@angular/router';
 import swal from 'sweetalert2';
 
 @Component({
-  selector: 'app-nuevo-proceso',
-  templateUrl: './nuevo-proceso.component.html',
-  styleUrls: []
+  selector: 'app-nuevo-lote',
+  templateUrl: './nuevo-lote.component.html',
+  styles: []
 })
-export class NuevoProcesoComponent implements OnInit {
+export class NuevoLoteComponent implements OnInit {
   dataTipoContribuyente: any;
   dataTipoValor: any;
   dataTipoUbicacion: any;
@@ -103,16 +103,16 @@ export class NuevoProcesoComponent implements OnInit {
           swal.showLoading();
         }
       });
-      this.api.postDataProceso(data_post).subscribe((data: any) => {
+      this.api.postDataLote(data_post).subscribe((data: any) => {
         if (data[0].RETORNA === '0') {
           swal.fire({
             title: 'Mensaje informativo',
-            text: 'Proceso generado correctamente',
+            text: 'Lote generado correctamente',
             icon: 'success',
             confirmButtonText: 'Aceptar'
           }).then((result) => {
             if (result.isConfirmed) {
-              this.router.navigate(['/proceso']);
+              this.router.navigate(['/lote']);
             }
           })
 
@@ -132,7 +132,7 @@ export class NuevoProcesoComponent implements OnInit {
   }
 
   regresarProceso() {
-    this.router.navigate(['/proceso']);
+    this.router.navigate(['/lote']);
   }
 
   fillTipoContribuyente() {
@@ -177,5 +177,4 @@ export class NuevoProcesoComponent implements OnInit {
       this.dataTipoSector = data;
     });
   }
-
 }
