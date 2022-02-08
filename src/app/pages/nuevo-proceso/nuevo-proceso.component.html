@@ -24,13 +24,17 @@
                                         <div class="position-relative form-group">
                                             <label for="tipoContrib">Tipo Contribuyente</label>
                                             <div>
-                                                <select name="tipoContrib" id="tipoContrib" class="form-control" formControlName="tipoContrib" [(ngModel)]="tipoContrib" [ngClass]="{ 'is-invalid': submitted && f.tipoContrib.errors }">
+                                                <select name="tipoContrib" id="tipoContrib" class="form-control"
+                                                    formControlName="tipoContrib" [(ngModel)]="tipoContrib"
+                                                    [ngClass]="{ 'is-invalid': submitted && f.tipoContrib.errors }">
                                                     <option value="">Seleccionar</option>
                                                     <option value="0">TODOS</option>
-                                                    <option *ngFor="let item of dataTipoContribuyente" [value]="item.tipcon">{{item.descon}}</option>
+                                                    <option *ngFor="let item of dataTipoContribuyente"
+                                                        [value]="item.tipcon">{{item.descon}}</option>
                                                 </select>
                                                 <div class="invalid-feedback" *ngIf="submitted && f.tipoContrib.errors">
-                                                    <div *ngIf="f.tipoContrib.errors.required">Seleccione tipo de contribuyente</div>
+                                                    <div *ngIf="f.tipoContrib.errors.required">Seleccione tipo de
+                                                        contribuyente</div>
                                                 </div>
                                             </div>
                                         </div>
@@ -38,9 +42,12 @@
                                     <div class="col-md-3">
                                         <div class="position-relative form-group">
                                             <label for="tipoValor">Tipo de Tributo</label>
-                                            <select name="tipoValor" id="tipoValor" [(ngModel)]="tipoValor" class="form-control" formControlName="tipoValor" [ngClass]="{ 'is-invalid': submitted && f.tipoValor.errors }">
+                                            <select name="tipoValor" id="tipoValor" [(ngModel)]="tipoValor"
+                                                class="form-control" formControlName="tipoValor"
+                                                [ngClass]="{ 'is-invalid': submitted && f.tipoValor.errors }">
                                                 <option value="">Seleccionar</option>
-                                                <option *ngFor="let item of dataTipoValor" [value]="item.tva_id">{{item.tva_descri}}</option>
+                                                <option *ngFor="let item of dataTipoValor" [value]="item.tva_id">
+                                                    {{item.tva_descri}}</option>
                                             </select>
                                             <div class="invalid-feedback" *ngIf="submitted && f.tipoValor.errors">
                                                 <div *ngIf="f.tipoValor.errors.required">Seleccione tipo de Valor</div>
@@ -50,9 +57,12 @@
                                     <div class="col-md-1">
                                         <div class="position-relative form-group">
                                             <label for="anioDesde">Años a Procesar</label>
-                                            <select class="form-control" [(ngModel)]="anioDesde" formControlName="anioDesde" [ngClass]="{ 'is-invalid': submitted && f.anioDesde.errors }">
+                                            <select class="form-control" [(ngModel)]="anioDesde"
+                                                formControlName="anioDesde"
+                                                [ngClass]="{ 'is-invalid': submitted && f.anioDesde.errors }">
                                                 <option value="" selected>Seleccionar</option>
-                                                <option *ngFor="let item of anios" [value]="item.anio">{{item.anio}}</option>
+                                                <option *ngFor="let item of anios" [value]="item.anio">{{item.anio}}
+                                                </option>
                                             </select>
                                             <div class="invalid-feedback" *ngIf="submitted && f.anioDesde.errors">
                                                 <div *ngIf="f.anioDesde.errors.required">Seleccione una opción</div>
@@ -62,9 +72,12 @@
                                     <div class="col-md-1">
                                         <div class="position-relative form-group">
                                             <label for="anioHasta">&nbsp;</label>
-                                            <select class="form-control" [(ngModel)]="anioHasta" formControlName="anioHasta" [ngClass]="{ 'is-invalid': submitted && f.anioHasta.errors }">
+                                            <select class="form-control" [(ngModel)]="anioHasta"
+                                                formControlName="anioHasta"
+                                                [ngClass]="{ 'is-invalid': submitted && f.anioHasta.errors }">
                                                 <option value="" selected>Seleccionar</option>
-                                                <option *ngFor="let item of anios" [value]="item.anio">{{item.anio}}</option>
+                                                <option *ngFor="let item of anios" [value]="item.anio">{{item.anio}}
+                                                </option>
                                             </select>
                                             <div class="invalid-feedback" *ngIf="submitted && f.anioHasta.errors">
                                                 <div *ngIf="f.anioHasta.errors.required">Seleccione una opción</div>
@@ -74,39 +87,55 @@
                                     <div class="col-md-4">
                                         <div class="position-relative form-group">
                                             <label for="tipoUbicacion">Ubicacion</label>
-                                            <select formControlName="tipoUbicacion" name="tipoUbicacion" id="tipoUbicacion" [(ngModel)]="tipoUbicacion" class="form-control">
+                                            <select formControlName="tipoUbicacion" name="tipoUbicacion"
+                                                id="tipoUbicacion" [(ngModel)]="tipoUbicacion" class="form-control">
                                                 <option value="">Seleccionar</option>
-                                                <option *ngFor="let item of dataTipoUbicacion" [value]="item.dfdnid">{{item.desdfd}}</option>
+                                                <option *ngFor="let item of dataTipoUbicacion" [value]="item.dfdnid">
+                                                    {{item.desdfd}}</option>
                                             </select>
                                         </div>
                                     </div>
                                     <div class="col-md-1">
                                         <div class="position-relative form-group">
                                             <label for="tipoValor">Rango de monto</label>
-                                            <input formControlName="montoDesde" type="text" class="form-control" [(ngModel)]="montoDesde">
+                                            <input formControlName="montoDesde" type="text" class="form-control"
+                                                [(ngModel)]="montoDesde">
                                         </div>
                                     </div>
                                     <div class="col-md-1">
                                         <div class="position-relative form-group">
                                             <label for="tipoValor">&nbsp;</label>
-                                            <input formControlName="montoHasta" type="text" class="form-control" [(ngModel)]="montoHasta">
+                                            <input formControlName="montoHasta" type="text" class="form-control"
+                                                [(ngModel)]="montoHasta">
                                         </div>
                                     </div>
                                     <div class="col-md-2">
                                         <div class="position-relative form-group">
                                             <label for="tipoSector">Sector</label>
-                                            <select formControlName="tipoSector" name="tipoSector" id="tipoSector" [(ngModel)]="tipoSector" class="form-control">
+                                            <select formControlName="tipoSector" name="tipoSector" id="tipoSector"
+                                                [(ngModel)]="tipoSector" class="form-control">
                                                 <option value="" selected>Seleccionar</option>
-                                                <option *ngFor="let item of dataTipoSector" [value]="item.tsec_val">{{item.tsec_descri}}</option>
+                                                <option *ngFor="let item of dataTipoSector" [value]="item.tsec_val">
+                                                    {{item.tsec_descri}}</option>
                                             </select>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-2">
+                                        <div class="position-relative form-group">
+                                            <label for="fechaProyec">Sector</label>
+                                            <input formControlName="fechaProyec" type="date" class="form-control"
+                                                [(ngModel)]="fechaProyec" (ngModelChange)="fechaProyec = $event" (change)="cambiaProyeccion()">
                                         </div>
                                     </div>
                                 </div>
                                 <div class="form-row">
                                     <div class="col-md-12">
                                         <p class="text-left">
-                                            <button class="mb-2 mr-2 btn-icon btn btn-info btn btn-info-mdsb" (click)="regresarProceso()" ><i class="pe-7s-back-2 btn-icon-wrapper"></i>Cancelar</button>
-                                            <button class="mb-2 mr-2 btn-icon btn btn-info btn btn-info-mdsb"><i class="pe-7s-diskette btn-icon-wrapper"></i>Guardar</button>
+                                            <button class="mb-2 mr-2 btn-icon btn btn-info btn btn-info-mdsb"
+                                                (click)="regresarProceso()"><i
+                                                    class="pe-7s-back-2 btn-icon-wrapper"></i>Cancelar</button>
+                                            <button class="mb-2 mr-2 btn-icon btn btn-info btn btn-info-mdsb"><i
+                                                    class="pe-7s-diskette btn-icon-wrapper"></i>Guardar</button>
                                         </p>
                                     </div>
                                 </div>

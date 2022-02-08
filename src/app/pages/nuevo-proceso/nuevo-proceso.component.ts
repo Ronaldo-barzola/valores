@@ -25,6 +25,7 @@ export class NuevoProcesoComponent implements OnInit {
   tipoUbicacion: string = "";
   filterPerIni: string = '1';
   filterPerFin: string = '3';
+  fechaProyec: Date;
 
   anios: any = [];
 
@@ -41,6 +42,7 @@ export class NuevoProcesoComponent implements OnInit {
       anioDesde: ["", [Validators.required]],
       anioHasta: ["", [Validators.required]],
       tipoUbicacion: ["", [Validators.required]],
+      fechaProyec: ["", [Validators.required]],
     });
   }
 
@@ -73,7 +75,7 @@ export class NuevoProcesoComponent implements OnInit {
     for (var i = max; i >= min; i--) {
       this.anios.push({ anio: i });
     }
-    
+
     console.log(this.anios);
   }
 
@@ -129,6 +131,19 @@ export class NuevoProcesoComponent implements OnInit {
 
       });
     }
+  }
+
+  cambiaProyeccion() {
+    const date = new Date();
+    const ultimoDia = new Date(date.getFullYear(), date.getMonth() + 1, 0);
+    const fecha_actual = new Date(this.fechaProyec);
+    console.log(this.fechaProyec);
+    if (fecha_actual >= ultimoDia) {
+      this.fechaProyec = fecha_actual;
+    } else {
+      alert("menor");
+    }
+
   }
 
   regresarProceso() {
