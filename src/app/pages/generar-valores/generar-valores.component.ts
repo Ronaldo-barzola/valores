@@ -13,6 +13,7 @@ export class GenerarValoresComponent implements OnInit {
 
   constructor() {}
 
+  
   ngOnInit() {
     this.fb_fecini = new Date();
     this.fb_fecfin = new Date();
