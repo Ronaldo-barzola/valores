@@ -1,43 +1,47 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
-import { ActivatedRoute, Router } from '@angular/router';
-import { ApiService } from 'src/app/services/api.service';
-import { DataTableDirective } from 'angular-datatables';
-import { Subject } from 'rxjs';
+import { Component, OnInit, ViewChild } from "@angular/core";
+import { ActivatedRoute, Router } from "@angular/router";
+import { ApiService } from "src/app/services/api.service";
+import { DataTableDirective } from "angular-datatables";
+import { Subject } from "rxjs";
+import swal from "sweetalert2";
 
 @Component({
-  selector: 'app-listado-contrib-lote',
-  templateUrl: './listado-contrib-lote.component.html',
-  styles: []
+  selector: "app-listado-contrib-lote",
+  templateUrl: "./listado-contrib-lote.component.html",
+  styles: [],
 })
 export class ListadoContribLoteComponent implements OnInit {
-
   @ViewChild(DataTableDirective, { static: false })
   dtElement: DataTableDirective;
   isDtInitialized: boolean = false;
-  varTmpDisplayCreaReg: string = 'inline-block';
-  idvisSEL: string = '';
+  varTmpDisplayCreaReg: string = "inline-block";
+  idvisSEL: string = "";
 
   paramNumProceso: any;
   dataListado: any;
   rowSelected: any;
 
-
   dtOptions: any = {
-    pagingType: 'full_numbers',
-    dom: 'Bfrtip',
-    buttons: [
-      'excel'
-    ],
+    pagingType: "full_numbers",
+    dom: "Bfrtip",
+    buttons: ["excel"],
     select: true,
     processing: true,
     responsive: true,
     rowCallback: (row: Node, data: any[] | Object, index: number) => {
       const self = this;
-      $('td', row).off('click');
-      $('td', row).on('click', () => {
+      $("td", row).off("click");
+      $("td", row).on("click", () => {
         this.rowSelected = data;
-        let btnDetalleProceso = document.getElementById('detalleProceso') as HTMLButtonElement;
+        let btnDetalleProceso = document.getElementById(
+          "detalleProceso"
+        ) as HTMLButtonElement;
         btnDetalleProceso.disabled = false;
+
+        let anularProceso = document.getElementById(
+          "anularProceso"
+        ) as HTMLButtonElement;
+        anularProceso.disabled = false;
       });
       return row;
     },
@@ -63,21 +67,34 @@ export class ListadoContribLoteComponent implements OnInit {
         first: "Primero",
         previous: "Anterior",
         next: "Siguiente",
-        last: "Último"
+        last: "Último",
       },
       aria: {
         sortAscending: ": Activar para ordenar la tabla en orden ascendente",
-        sortDescending: ": Activar para ordenar la tabla en orden descendente"
-      }
-    }
+        sortDescending: ": Activar para ordenar la tabla en orden descendente",
+      },
+    },
   };
 
   dtTrigger: Subject<any> = new Subject<any>();
 
-  constructor(private api: ApiService, private route: ActivatedRoute, private router: Router) { }
+  constructor(
+    private api: ApiService,
+    private route: ActivatedRoute,
+    private router: Router
+  ) {}
 
   ngOnInit() {
-    let btnDetalleProceso = document.getElementById('detalleProceso') as HTMLButtonElement;
+
+    let btnDetalleProceso = document.getElementById(
+      "detalleProceso"
+    ) as HTMLButtonElement;
+
+    let anularProceso = document.getElementById(
+      "anularProceso"
+    ) as HTMLButtonElement;
+
+    anularProceso.disabled = true;
     btnDetalleProceso.disabled = true;
 
     this.paramNumProceso = this.route.snapshot.params.numpro;
@@ -92,14 +109,31 @@ export class ListadoContribLoteComponent implements OnInit {
     this.dtTrigger.next();
   }
 
-  descargaExcel(){
-    let btnExcel = document.querySelector('#tablaDetalleProceso .dt-buttons .dt-button.buttons-excel.buttons-html5') as HTMLButtonElement;
+  descargaExcel() {
+    let btnExcel = document.querySelector(
+      "#tablaDetalleProceso .dt-buttons .dt-button.buttons-excel.buttons-html5"
+    ) as HTMLButtonElement;
 
     btnExcel.click();
   }
 
-  anulaRegistro(){
-    console.log('Anula registro');
+  anulaRegistro() {
+    swal
+      .fire({
+        title: "¿Esta seguro de eliminar?",
+        text: "Se procederá a eliminar el contribuyente del lote actual",
+        icon: "warning",
+        showCancelButton: true,
+        confirmButtonColor: "#59C3B7",
+        cancelButtonColor: "#d33",
+        confirmButtonText: "Si, eliminar!",
+        cancelButtonText: "Cancelar",
+      })
+      .then((result) => {
+        if (result.isConfirmed) {
+          swal.fire("Deleted!", "Your file has been deleted.", "success");
+        }
+      });
   }
 
   detalleProceso() {
@@ -126,6 +160,10 @@ export class ListadoContribLoteComponent implements OnInit {
 
   verDetalleDeuda() {
     console.log(this.rowSelected);
-    this.router.navigate(['/detalle-deuda-lote', this.paramNumProceso, this.rowSelected[0]]);
+    this.router.navigate([
+      "/detalle-deuda-lote",
+      this.paramNumProceso,
+      this.rowSelected[0],
+    ]);
   }
 }
