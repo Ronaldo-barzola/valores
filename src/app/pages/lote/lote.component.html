@@ -81,26 +81,32 @@
                                     class="row-border hover">
                                     <thead>
                                         <tr style="text-align: center;">
-                                            <th>Proceso</th>
-                                            <th>Fecha</th>
-                                            <th>Tipo Valor</th>
-                                            <th>Año Ini.</th>
-                                            <th>Año Fin</th>
-                                            <th>Monto Ini.</th>
-                                            <th>Monto Fin</th>
-                                            <th>Cantidad</th>
+                                            <th>Id Lote</th>
+                                            <th>Fecha Registro</th>
+                                            <th>Tipo Tributo</th>
+                                            <th>Años</th>
+                                            <th>Monto Inicial</th>
+                                            <th>Monto Final</th>
+                                            <th>Fecha Proceso</th>
+                                            <th>Contribuyentes</th>
+                                            <th>Predios</th>
+                                            <th>Monto Final</th>
+                                            <th>Estado</th>
                                         </tr>
                                     </thead>
                                     <tbody>
                                         <tr *ngFor="let item of dataProceso" style="text-align: center;">
                                             <td>{{item.elc_id}}</td>
-                                            <td>{{item.elc_fecpro | date:'dd-MM-yyyy'}}</td>
-                                            <td>{{item.elc_tipval}}</td>
-                                            <td>{{item.elc_anoini}}</td>
-                                            <td>{{item.elc_anofin}}</td>
+                                            <td>{{item.elc_fecreg}}</td>
+                                            <td>{{item.elc_destri}}</td>
+                                            <td>{{item.elc_anycon}}</td>
                                             <td>S/ {{item.elc_monini | number: '1.2-2'}}</td>
                                             <td>S/ {{item.elc_monfin | number: '1.2-2'}}</td>
+                                            <td>{{item.elc_fecpro}}</td>
                                             <td>{{item.elc_cancon}}</td>
+                                            <td>{{item.pdl_canpre}}</td>
+                                            <td>{{item.pdl_mondeu | number: '1.2-2'}}</td>
+                                            <td>{{item.epv_descri}}</td>
                                         </tr>
                                     </tbody>
                                 </table>

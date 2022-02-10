@@ -92,13 +92,13 @@ export class ListadoContribComponent implements OnInit {
     this.dtTrigger.next();
   }
 
-  descargaExcel(){
+  descargaExcel() {
     let btnExcel = document.querySelector('#tablaDetalleProceso .dt-buttons .dt-button.buttons-excel.buttons-html5') as HTMLButtonElement;
 
     btnExcel.click();
   }
 
-  anulaRegistro(){
+  anulaRegistro() {
     console.log('Anula registro');
   }
 
@@ -121,12 +121,17 @@ export class ListadoContribComponent implements OnInit {
           this.dtTrigger.next();
         });
       }
+      console.log(data);
     });
   }
 
   verDetalleDeuda() {
     console.log(this.rowSelected);
     this.router.navigate(['/detalle-deuda', this.paramNumProceso, this.rowSelected[0]]);
+  }
+
+  regresarProceso() {
+    this.router.navigate(['/proceso']);
   }
 
 }

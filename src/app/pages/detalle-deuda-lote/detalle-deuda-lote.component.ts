@@ -64,7 +64,7 @@ export class DetalleDeudaLoteComponent implements OnInit {
 
   dtTrigger: Subject<any> = new Subject<any>();
 
-  constructor(private api: ApiService, private router: Router, private route: ActivatedRoute) {}
+  constructor(private api: ApiService, private router: Router, private route: ActivatedRoute) { }
 
   ngOnInit() {
     this.paramNumProceso = this.route.snapshot.params.numpro;
@@ -80,10 +80,18 @@ export class DetalleDeudaLoteComponent implements OnInit {
     this.dtTrigger.next();
   }
 
-  descargaExcel(){
+  descargaExcel() {
     let btnExcel = document.querySelector('#tablaDetalleProceso .dt-buttons .dt-button.buttons-excel.buttons-html5') as HTMLButtonElement;
 
     btnExcel.click();
+  }
+
+
+  regresarDetalleLote() {
+    this.router.navigate([
+      "/listado-contrib-lote",
+      this.paramNumProceso
+    ]);
   }
 
   listarDetalleDeuda() {
@@ -91,6 +99,7 @@ export class DetalleDeudaLoteComponent implements OnInit {
       p_elcnid: this.paramNumProceso,
       p_codcon: this.paramCodContrib
     };
+
 
     this.api.getDataLoteDeudaContrib(data_post).subscribe((data: any) => {
       if (data.length != 0) {
@@ -106,6 +115,7 @@ export class DetalleDeudaLoteComponent implements OnInit {
           this.dtTrigger.next();
         });
       }
+      console.log(data);
     });
   }
 

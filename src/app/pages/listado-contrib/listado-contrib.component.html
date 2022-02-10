@@ -20,11 +20,15 @@
                         <div class="card-body">
                             <h5 class="card-title">Resultados de Busqueda</h5>
                             <div class="table-responsive" id="tablaDetalleProceso">
-                                <table datatable [dtOptions]="dtOptions" [dtTrigger]="dtTrigger" class="row-border hover">
+                                <table datatable [dtOptions]="dtOptions" [dtTrigger]="dtTrigger"
+                                    class="row-border hover">
                                     <thead>
                                         <tr style="text-align: center;">
-                                            <th>Código</th>
-                                            <th>Nombre o Razón Social</th>
+                                            <th>Código Ctr.</th>
+                                            <th width="30%">Nombre</th>
+                                            <th>Ubicación</th>
+                                            <th>Predios</th>
+                                            <th>Periodos</th>
                                             <th>Monto Deuda</th>
                                         </tr>
                                     </thead>
@@ -32,7 +36,10 @@
                                         <tr *ngFor="let item of dataListado" style="text-align: center;">
                                             <td>{{ item.pdc_codcon }}</td>
                                             <td>{{ item.pdc_nomcom }}</td>
-                                            <td>S/ {{ item.pdc_montot | number: '1.2-2' }}</td>
+                                            <td>{{ item.pdc_ubides }}</td>
+                                            <td>{{ item.pdc_canpre }}</td>
+                                            <td>{{ item.pdc_canper }}</td>
+                                            <td>S/ {{ item.pdc_totdeu | number: '1.2-2' }}</td>
                                         </tr>
                                     </tbody>
                                 </table>
@@ -40,9 +47,18 @@
                             <div class="form-row">
                                 <div class="col-md-12">
                                     <p class="text-left">
-                                        <button class="mb-2 mr-2 btn-icon btn btn-info-mdsb" id="anularProceso" (click)="anulaRegistro()"><i class="pe-7s-trash btn-icon-wrapper"></i>Anular</button>
-                                        <button class="mb-2 mr-2 btn-icon btn btn-info-mdsb" id="detalleProceso" (click)="verDetalleDeuda()"><i class="pe-7s-note2 btn-icon-wrapper"></i>Detalle</button>
-                                        <button class="mb-2 mr-2 btn-icon btn btn-info-mdsb" id="descargaProceso" (click)="descargaExcel()"><i class="pe-7s-cloud-download btn-icon-wrapper"></i>Excel</button>
+                                        <button class="mb-2 mr-2 btn-icon btn btn-info-mdsb" id="anularProceso"
+                                            (click)="anulaRegistro()"><i
+                                                class="pe-7s-trash btn-icon-wrapper"></i>Anular</button>
+                                        <button class="mb-2 mr-2 btn-icon btn btn-info-mdsb" id="detalleProceso"
+                                            (click)="verDetalleDeuda()"><i
+                                                class="pe-7s-note2 btn-icon-wrapper"></i>Detalle</button>
+                                        <button class="mb-2 mr-2 btn-icon btn btn-info-mdsb" id="descargaProceso"
+                                            (click)="descargaExcel()"><i
+                                                class="pe-7s-cloud-download btn-icon-wrapper"></i>Excel</button>
+                                        <button class="mb-2 mr-2 btn-icon btn btn-info-mdsb" id="regresarProceso"
+                                            (click)="regresarProceso()"><i
+                                                class="pe-7s-back btn-icon-wrapper"></i>Regresar</button>
                                     </p>
                                 </div>
                             </div>

@@ -91,6 +91,8 @@ export class NuevoProcesoComponent implements OnInit {
       return;
     } else {
       const data_post = {
+        p_secuen: 1234567890,
+        p_fecpro: this.fechaProyec,
         p_anoini: this.anioDesde,
         p_anofin: this.anioHasta,
         p_perini: this.filterPerIni,
@@ -103,6 +105,7 @@ export class NuevoProcesoComponent implements OnInit {
         p_monfin: this.montoHasta,
       };
 
+      console.log(data_post);
       swal.fire({
         title: "Guardando información...",
         allowEscapeKey: false,

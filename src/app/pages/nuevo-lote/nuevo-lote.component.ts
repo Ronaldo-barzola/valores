@@ -25,8 +25,11 @@ export class NuevoLoteComponent implements OnInit {
   tipoUbicacion: string = "";
   filterPerIni: string = '1';
   filterPerFin: string = '3';
+  fechaProyec: Date;
+  disabledHasta: boolean = true;
 
   anios: any = [];
+  arrayAniosHasta: any = [];
 
   simpleForm: FormGroup;
   submitted = false;
@@ -41,6 +44,7 @@ export class NuevoLoteComponent implements OnInit {
       anioDesde: ["", [Validators.required]],
       anioHasta: ["", [Validators.required]],
       tipoUbicacion: ["", [Validators.required]],
+      fechaProyec: ["", [Validators.required]],
     });
   }
 
@@ -73,8 +77,57 @@ export class NuevoLoteComponent implements OnInit {
     for (var i = max; i >= min; i--) {
       this.anios.push({ anio: i });
     }
-    
+
     console.log(this.anios);
+  }
+
+  cambiarAnio() {
+    const max = new Date().getFullYear();
+    const min = parseInt(this.anioDesde);
+    console.log(max + "" + min);
+    this.arrayAniosHasta = [];
+    for (var i = min; i <= max; i++) {
+      this.arrayAniosHasta.push({ anio: i });
+    }
+    this.disabledHasta = false;
+  }
+
+  cambiaProyeccion() {
+    const date = new Date();
+    const primerDia = new Date(date.getFullYear(), date.getMonth(), 1);
+    const ultimoDia = new Date(date.getFullYear(), date.getMonth() + 1, 0);
+    const fecha_actual = new Date(this.fechaProyec);
+
+    if (fecha_actual > ultimoDia) {
+      swal.fire({
+        icon: "error",
+        title: "Error",
+        text: "La fecha no puede ser mayor al último día del presente mes.",
+        // showCancelButton: true,
+        cancelButtonText: "Cerrar",
+      });
+      this.fechaProyec = new Date();
+    } else if (fecha_actual < primerDia) {
+      swal.fire({
+        icon: "error",
+        title: "Error",
+        text: "La fecha no puede ser menor al primer día del presente mes.",
+        // showCancelButton: true,
+        cancelButtonText: "Cerrar",
+      });
+      this.fechaProyec = new Date();
+    }
+  }
+
+  soloNumeros(event) {
+    var charCode = (event.which) ? event.which : event.keyCode;
+    // Only Numbers 0-9
+    if ((charCode < 48 || charCode > 57)) {
+      event.preventDefault();
+      return false;
+    } else {
+      return true;
+    }
   }
 
   guardarProceso() {
@@ -83,6 +136,8 @@ export class NuevoLoteComponent implements OnInit {
       return;
     } else {
       const data_post = {
+        p_secuen: 1234567890,
+        p_fecpro: this.fechaProyec,
         p_anoini: this.anioDesde,
         p_anofin: this.anioHasta,
         p_perini: this.filterPerIni,
@@ -94,7 +149,7 @@ export class NuevoLoteComponent implements OnInit {
         p_monini: this.montoDesde,
         p_monfin: this.montoHasta
       }
-
+      console.log(data_post);
       swal.fire({
         title: 'Guardando información...',
         allowEscapeKey: false,

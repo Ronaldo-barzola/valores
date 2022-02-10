@@ -82,7 +82,7 @@ export class ListadoContribLoteComponent implements OnInit {
     private api: ApiService,
     private route: ActivatedRoute,
     private router: Router
-  ) {}
+  ) { }
 
   ngOnInit() {
 
@@ -131,9 +131,60 @@ export class ListadoContribLoteComponent implements OnInit {
       })
       .then((result) => {
         if (result.isConfirmed) {
+
+          const data_post = {
+            p_elc_id: this.paramNumProceso,
+            p_codcon: this.rowSelected[0]
+       
+          }
+          console.log(data_post);
+          swal.fire({
+            title: 'Eliminando registro...',
+            allowEscapeKey: false,
+            allowOutsideClick: false,
+            onOpen: function () {
+              swal.showLoading();
+            }
+          });
+          this.api.postDataLote(data_post).subscribe((data: any) => {
+            if (data[0].RETORNA === '0') {
+              swal.fire({
+                title: 'Mensaje informativo',
+                text: 'Lote generado correctamente',
+                icon: 'success',
+                confirmButtonText: 'Aceptar'
+              }).then((result) => {
+                if (result.isConfirmed) {
+                  this.router.navigate(['/lote']);
+                }
+              })
+    
+            } else {
+              swal.fire({
+                icon: 'error',
+                title: 'Ocurrió algo inesperado',
+                text: "Hubo un error al guardar la informacion",
+                showCancelButton: true,
+                cancelButtonText: 'Cerrar',
+    
+              });
+            }
+    
+          });
+
+
+
+
+
           swal.fire("Deleted!", "Your file has been deleted.", "success");
         }
       });
+  }
+
+  regresarLote() {
+    this.router.navigate([
+      "/lote"
+    ]);
   }
 
   detalleProceso() {
@@ -155,6 +206,7 @@ export class ListadoContribLoteComponent implements OnInit {
           this.dtTrigger.next();
         });
       }
+      console.log(data);
     });
   }
 

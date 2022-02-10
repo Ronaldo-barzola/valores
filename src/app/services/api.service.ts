@@ -11,7 +11,8 @@ export class ApiService {
   constructor(private httpClient: HttpClient, private router: Router) { }
 
   // urlApi: string = 'https://backendmdsb.latamdeveloper.com/api/v1/';
-  urlApi: string = 'https://api.municallao.gob.pe/mdsb/public/v1/';
+  // urlApi: string = 'https://api.municallao.gob.pe/mdsb/public/v1/';
+  urlApi: string = 'http://192.168.2.253/mdsb/public/v1/';
 
   getQuery(query: string) {
     const url = `${ this.urlApi + query }`;
@@ -89,6 +90,14 @@ export class ApiService {
 
   postDataLote(data: object) {
     return this.postQuery('lotes/lotemision/guardar', data).pipe(
+      map((data) => {
+        return data;
+      })
+    );
+  }
+
+  postAnulaContriLote(data: object) {
+    return this.postQuery('lotes/lotemision/anular-contrib', data).pipe(
       map((data) => {
         return data;
       })

@@ -171,6 +171,7 @@ export class ProcesoComponent implements OnInit {
           this.dtTrigger.next();
         });
       }
+      console.log(data);
     });
   }
 

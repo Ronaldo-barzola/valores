@@ -114,7 +114,7 @@ export class LoteComponent implements OnInit {
     this.dtTrigger.unsubscribe();
   }
 
-  descargaExcel(){
+  descargaExcel() {
     let btnExcel = document.querySelector('#tablaDataProceso .dt-buttons .dt-button.buttons-excel.buttons-html5') as HTMLButtonElement;
 
     btnExcel.click();
@@ -151,7 +151,7 @@ export class LoteComponent implements OnInit {
     this.api.getDataLoteListar(data_post).subscribe((data: any) => {
       console.log(data);
       let btnExportaExcel = document.getElementById('descargaProceso') as HTMLButtonElement;
-      
+
       if (data.length != 0) {
         this.dataProceso = data;
         this.dtElement.dtInstance.then((dtInstance: DataTables.Api) => {
@@ -166,10 +166,11 @@ export class LoteComponent implements OnInit {
           this.dtTrigger.next();
         });
       }
+      console.log(data);
     });
   }
 
-  anulaRegistro(){
+  anulaRegistro() {
     console.log('Anula registro');
   }
 

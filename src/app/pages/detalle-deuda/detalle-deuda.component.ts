@@ -86,6 +86,11 @@ export class DetalleDeudaComponent implements OnInit {
     btnExcel.click();
   }
 
+  regresarDetalleProceso(){
+    
+    this.router.navigate(['/listado-contrib', this.paramNumProceso]);
+  }
+
   listarDetalleDeuda() {
     const data_post = {
       p_pdlnid: this.paramNumProceso,

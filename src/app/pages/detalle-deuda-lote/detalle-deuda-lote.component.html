@@ -35,14 +35,14 @@
                                     </thead>
                                     <tbody>
                                         <tr *ngFor="let item of detalleDeuda" style="text-align: center;">
-                                            <td >{{ item.eld_codcon }}</td>
-                                            <td >{{ item.eld_codpre }}</td>
-                                            <td >{{ item.eld_anytri }} - {{(item.eld_numper).padStart(2, '0') }}</td>
-                                            <td >{{ item.eld_monins }}</td>
-                                            <td >{{ item.eld_mongas }}</td>
-                                            <td >{{ item.eld_monfac }}</td>
-                                            <td >{{ item.eld_monmor }}</td>
-                                            <td >{{ item.eld_montot }}</td>
+                                            <td >{{ item.elc_codcon }}</td>
+                                            <td >{{ item.elc_codpre }}</td>
+                                            <td >{{ item.elc_anytri }} - {{(item.elc_numper)}}</td>
+                                            <td >{{ item.elc_monins }}</td>
+                                            <td >{{ item.elc_mongas }}</td>
+                                            <td >{{ item.elc_monfac }}</td>
+                                            <td >{{ item.elc_monmor }}</td>
+                                            <td >{{ item.elc_montot }}</td>
                                         </tr>
                                     </tbody>
                                 </table>
@@ -51,6 +51,9 @@
                                 <div class="col-md-12">
                                     <p class="text-left">
                                         <button class="mb-2 mr-2 btn-icon btn btn-info-mdsb" id="descargaProceso" (click)="descargaExcel()"><i class="pe-7s-cloud-download btn-icon-wrapper"></i>Excel</button>
+                                        <button class="mb-2 mr-2 btn-icon btn btn-info-mdsb" id="regresarDetalleLote"
+                                        (click)="regresarDetalleLote()"><i
+                                            class="pe-7s-back btn-icon-wrapper"></i>Regresar</button>
                                     </p>
                                 </div>
                             </div>

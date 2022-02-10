@@ -20,7 +20,8 @@
                         <div class="card-body">
                             <h5 class="card-title">Resultados de Busqueda</h5>
                             <div class="table-responsive" id="tablaDetalleProceso">
-                                <table datatable [dtOptions]="dtOptions" [dtTrigger]="dtTrigger" class="row-border hover">
+                                <table datatable [dtOptions]="dtOptions" [dtTrigger]="dtTrigger"
+                                    class="row-border hover">
                                     <thead>
                                         <tr style="text-align: center;">
                                             <th>Cod. Contribuyente</th>
@@ -35,14 +36,14 @@
                                     </thead>
                                     <tbody>
                                         <tr *ngFor="let item of detalleDeuda" style="text-align: center;">
-                                            <td >{{ item.pdc_codcon }}</td>
-                                            <td >{{ item.pdc_codpre }}</td>
-                                            <td >{{ item.pdc_anytri }} - {{(item.pdc_numper).padStart(2, '0') }}</td>
-                                            <td >{{ item.pdc_monins }}</td>
-                                            <td >{{ item.pdc_mongas }}</td>
-                                            <td >{{ item.pdc_monfac }}</td>
-                                            <td >{{ item.pdc_monmor }}</td>
-                                            <td >{{ item.pdc_montot }}</td>
+                                            <td>{{ item.pdc_codcon }}</td>
+                                            <td>{{ item.pdc_codpre }}</td>
+                                            <td>{{ item.pdc_anytri }} - {{(item.pdc_numper).padStart(2, '0') }}</td>
+                                            <td>{{ item.pdc_monins }}</td>
+                                            <td>{{ item.pdc_mongas }}</td>
+                                            <td>{{ item.pdc_monfac }}</td>
+                                            <td>{{ item.pdc_monmor }}</td>
+                                            <td>{{ item.pdc_montot }}</td>
                                         </tr>
                                     </tbody>
                                 </table>
@@ -50,7 +51,12 @@
                             <div class="form-row">
                                 <div class="col-md-12">
                                     <p class="text-left">
-                                        <button class="mb-2 mr-2 btn-icon btn btn-info-mdsb" id="descargaProceso" (click)="descargaExcel()"><i class="pe-7s-cloud-download btn-icon-wrapper"></i>Excel</button>
+                                        <button class="mb-2 mr-2 btn-icon btn btn-info-mdsb" id="descargaProceso"
+                                            (click)="descargaExcel()"><i
+                                                class="pe-7s-cloud-download btn-icon-wrapper"></i>Excel</button>
+                                        <button class="mb-2 mr-2 btn-icon btn btn-info-mdsb" id="regresarDetalleProceso"
+                                            (click)="regresarDetalleProceso()"><i
+                                                class="pe-7s-back btn-icon-wrapper"></i>Regresar</button>
                                     </p>
                                 </div>
                             </div>
