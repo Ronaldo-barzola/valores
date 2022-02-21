@@ -50,7 +50,7 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="col-md-1">
+                                    <div class="col-md-2">
                                         <div class="position-relative form-group">
                                             <label for="anioDesde">Años a Procesar</label>
                                             <select class="form-control" [(ngModel)]="anioDesde" (change)="cambiarAnio()" formControlName="anioDesde" [ngClass]="{ 'is-invalid': submitted && f.anioDesde.errors }">
@@ -63,7 +63,7 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="col-md-1">
+                                    <div class="col-md-2">
                                         <div class="position-relative form-group">
                                             <label for="anioHasta">&nbsp;</label>
                                             <select [attr.disabled]="disabledHasta?'':null" class="form-control" [(ngModel)]="anioHasta" formControlName="anioHasta" [ngClass]="{ 'is-invalid': submitted && f.anioHasta.errors }">
@@ -74,6 +74,18 @@
                                             <div class="invalid-feedback" *ngIf="submitted && f.anioHasta.errors">
                                                 <div *ngIf="f.anioHasta.errors.required">Seleccione una opción</div>
                                             </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-1">
+                                        <div class="position-relative form-group">
+                                            <label for="perIni">Periodos</label>
+                                            <input formControlName="perIni" type="text" class="form-control" placeholder="Inicio" [(ngModel)]="perIni" (keypress)="soloNumeros($event)">
+                                        </div>
+                                    </div>
+                                    <div class="col-md-1">
+                                        <div class="position-relative form-group">
+                                            <label for="perFin">&nbsp;</label>
+                                            <input formControlName="perFin" type="text" class="form-control" placeholder="Fin" [(ngModel)]="perFin" (keypress)="soloNumeros($event)">
                                         </div>
                                     </div>
                                     <div class="col-md-4">

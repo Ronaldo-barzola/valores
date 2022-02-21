@@ -27,6 +27,8 @@ export class NuevoProcesoComponent implements OnInit {
   filterPerFin: string = "3";
   fechaProyec: Date;
   disabledHasta: boolean = true;
+  perIni: string = "";
+  perFin: string = "";
 
   anios: any = [];
   arrayAniosHasta: any = [];
@@ -49,6 +51,8 @@ export class NuevoProcesoComponent implements OnInit {
       anioHasta: ["", [Validators.required]],
       tipoUbicacion: ["", [Validators.required]],
       fechaProyec: ["", [Validators.required]],
+      perIni: ["", [Validators.required]],
+      perFin: ["", [Validators.required]],
     });
   }
 
@@ -95,8 +99,8 @@ export class NuevoProcesoComponent implements OnInit {
         p_fecpro: this.fechaProyec,
         p_anoini: this.anioDesde,
         p_anofin: this.anioHasta,
-        p_perini: this.filterPerIni,
-        p_perfin: this.filterPerFin,
+        p_perini: this.perIni,
+        p_perfin: this.perFin,
         p_tipcon: this.tipoContrib,
         p_tipval: this.tipoValor,
         p_disdfu: this.tipoUbicacion,
