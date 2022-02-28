@@ -1,41 +1,36 @@
-import { Component, OnInit, ViewChild } from "@angular/core";
-import { ApiService } from "src/app/services/api.service";
-import { Router } from '@angular/router';
-import { Subject } from 'rxjs';
+import { Component, OnInit, ViewChild } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
+import { ApiService } from 'src/app/services/api.service';
 import { DataTableDirective } from 'angular-datatables';
-import { BsModalService, BsModalRef } from 'ngx-bootstrap/modal';
+import { Subject } from 'rxjs';
 
 @Component({
-  selector: "app-generar-valores",
-  templateUrl: "./generar-valores.component.html",
-  styleUrls: [],
+  selector: 'app-detalle-lotval',
+  templateUrl: './detalle-lotval.component.html',
 })
-export class GenerarValoresComponent implements OnInit {
+export class DetalleLotvalComponent implements OnInit {
 
   @ViewChild(DataTableDirective, { static: false })
   dtElement: DataTableDirective;
   isDtInitialized: boolean = false;
   varTmpDisplayCreaReg: string = 'inline-block';
-  modalRef: BsModalRef;
   idvisSEL: string = '';
 
-
-  fb_fecini: Date;
-  fb_fecfin: Date;
-  p_numlot: string;
-  dataLoteValor: any;
-  dtTrigger: Subject<any> = new Subject<any>();
-
   rowSelected: any;
+  p_numlot: any;
+  p_anylot: any;
+  p_tipval: any;
+
+  dataDetalleLoteValor: any;
 
   dtOptions: any = {
     pagingType: 'full_numbers',
-    pageLength: 10,
     dom: 'Bfrtip',
     buttons: [
       'excel'
     ],
     select: true,
+    processing: true,
     responsive: true,
     rowCallback: (row: Node, data: any[] | Object, index: number) => {
       const self = this;
@@ -49,9 +44,8 @@ export class GenerarValoresComponent implements OnInit {
     },
     language: {
       processing: "Procesando...",
-
       search: "Buscar:",
-      lengthMenu: "Mostrar _MENU_ &eacute;l&eacute;ments",
+      lengthMenu: "Mostrar _MENU_ &eacute;l&eacute;mentos",
       info: "Mostrando desde _START_ al _END_ de _TOTAL_ elementos",
       infoEmpty: "Mostrando ningún elemento.",
       infoFiltered: "(filtrado _MAX_ elementos total)",
@@ -63,8 +57,8 @@ export class GenerarValoresComponent implements OnInit {
         rows: {
           _: "Selected %d rows",
           0: "Click a row to select it",
-          1: "Proceso seleccionado"
-        }
+          1: "Proceso seleccionado",
+        },
       },
       paginate: {
         first: "Primero",
@@ -79,22 +73,16 @@ export class GenerarValoresComponent implements OnInit {
     }
   };
 
-  constructor(
-    private api: ApiService,
-    private router: Router
-  ) { }
+  dtTrigger: Subject<any> = new Subject<any>();
 
+  constructor(private api: ApiService, private route: ActivatedRoute, private router: Router) { }
 
   ngOnInit() {
-    let btnDetalleProceso = document.getElementById('detalleProceso') as HTMLButtonElement;
-    let btnExportaExcel = document.getElementById('descargaProceso') as HTMLButtonElement;
-    btnDetalleProceso.disabled = true;
-    btnExportaExcel.disabled = true;
-    this.fb_fecini = new Date();
-    this.fb_fecfin = new Date();
-    this.loadDataLoteValor();
+    this.p_anylot = this.route.snapshot.params.anylot;
+    this.p_numlot = this.route.snapshot.params.numlot;
+    this.p_tipval = this.route.snapshot.params.tipval;
+    this.detalleLoteValor();
   }
-
 
   ngOnDestroy(): void {
     this.dtTrigger.unsubscribe();
@@ -104,29 +92,26 @@ export class GenerarValoresComponent implements OnInit {
     this.dtTrigger.next();
   }
 
-  verDetalleLotVal() {
+  verDetalleDeudaLoteValor() {
     console.log(this.rowSelected);
-    this.router.navigate(['/detalle-lotval', this.rowSelected[0], this.rowSelected[5], this.rowSelected[6]]);
+    this.router.navigate(['/deuda-lotval', this.rowSelected[0], this.rowSelected[1], this.rowSelected[2], this.p_tipval]);
   }
 
-  loadDataLoteValor() {
+  detalleLoteValor() {
     const data_post = {
-      p_anypro: 2022
+      p_anylot: this.p_anylot,
+      p_numlot: this.p_numlot
     };
 
-    this.api.getDataLoteValor(data_post).subscribe((data: any) => {
-      console.log(data);
-      let btnExportaExcel = document.getElementById('descargaProceso') as HTMLButtonElement;
-
+    this.api.getDataLoteValorContrib(data_post).subscribe((data: any) => {
       if (data.length != 0) {
-        this.dataLoteValor = data;
+        this.dataDetalleLoteValor = data;
         this.dtElement.dtInstance.then((dtInstance: DataTables.Api) => {
           dtInstance.destroy();
           this.dtTrigger.next();
         });
-        btnExportaExcel.disabled = false;
       } else {
-        this.dataLoteValor = [];
+        this.dataDetalleLoteValor = [];
         this.dtElement.dtInstance.then((dtInstance: DataTables.Api) => {
           dtInstance.destroy();
           this.dtTrigger.next();
@@ -135,4 +120,5 @@ export class GenerarValoresComponent implements OnInit {
       console.log(data);
     });
   }
+
 }

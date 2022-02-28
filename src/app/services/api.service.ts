@@ -144,4 +144,27 @@ export class ApiService {
     );
   }
 
+  getDataLoteValor(data: object) {
+    return this.postQuery('lotes/lotevalor/listar', data).pipe(
+      map((data) => {
+        return data;
+      })
+    );
+  }
+
+  getDataLoteValorContrib(data: object) {
+    return this.postQuery('lotes/lotevalorcon/listar', data).pipe(
+      map((data) => {
+        return data;
+      })
+    );
+  }
+  getDataLoteValorDetalle(data: object) {
+    return this.postQuery('lotes/lotevalordet/listar', data).pipe(
+      map((data) => {
+        return data;
+      })
+    );
+  }
+
 }

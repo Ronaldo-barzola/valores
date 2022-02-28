@@ -9,7 +9,9 @@ app-lote,
 app-nuevo-lote,
 app-listado-contrib-lote,
 app-detalle-deuda-lote,
-app-generar-valores {
+app-generar-valores,
+app-detalle-lotval,
+app-detalle-deuda-lotval {
     width: 100%;
 }
 
@@ -40,6 +42,7 @@ table.dataTable tbody>tr>.selected {
 }
 
 #tablaDataProceso .dt-buttons .dt-button.buttons-excel.buttons-html5,
-#tablaDetalleProceso .dt-buttons .dt-button.buttons-excel.buttons-html5 {
+#tablaDetalleProceso .dt-buttons .dt-button.buttons-excel.buttons-html5,
+#tablaLoteValor .dt-buttons .dt-button.buttons-excel.buttons-html5 {
     visibility: hidden;
 }

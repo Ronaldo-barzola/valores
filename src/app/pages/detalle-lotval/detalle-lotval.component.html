@@ -1,0 +1,84 @@
+<div class="app-main__outer">
+    <div class="app-main__inner">
+        <div class="app-page-title">
+            <div class="page-title-wrapper">
+                <div class="page-title-heading">
+                    <div class="page-title-icon">
+                        <i class="pe-7s-cash" style="color:#59c3b7;"></i>
+                    </div>
+                    <div>Lote de Valor - Listado de Contribuyentes</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="tab-content">
+        <div class="tab-pane tabs-animation fade show active" id="tab-content-0" role="tabpanel">
+            <div class="row">
+                <div class="col-lg-12 col-md-12">
+                    <div class="main-card mb-3 card" style="top: -20px;">
+                        <div class="card-body">
+                            <h5 class="card-title">Resultados de Busqueda</h5>
+                            <div class="table-responsive" id="tablaDetalleProceso">
+                                <table datatable [dtOptions]="dtOptions" [dtTrigger]="dtTrigger"
+                                    class="row-border hover">
+                                    <thead>
+                                        <tr style="text-align: center;">
+                                            <th>Año lote</th>
+                                            <th>Nro. Lote</th>
+                                            <th>Código</th>
+                                            <th>Contribuyente</th>
+                                            <th>Nro. Valor</th>
+                                            <th>Monto Deuda</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr *ngFor="let item of dataDetalleLoteValor" style="text-align: center;">
+                                            <td>{{ item.anylot }}</td>
+                                            <td>{{ item.numlot }}</td>
+                                            <td>{{ item.codcon }}</td>
+                                            <td>{{ item.nomcom }}</td>
+                                            <td>{{ item.numcar }}</td>
+                                            <td>S/ {{ item.total_deuda | number: '1.2-2' }}</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                            <div class="form-row">
+                                <div class="col-md-12">
+                                    <p class="text-left">
+                                        <button class="mb-2 mr-2 btn-icon btn btn-info-mdsb" id="anularProceso"
+                                            (click)="anulaRegistro()"><i
+                                                class="pe-7s-trash btn-icon-wrapper"></i>Anular</button>
+                                        <button class="mb-2 mr-2 btn-icon btn btn-info-mdsb" id="detalleProceso"
+                                            (click)="verDetalleDeudaLoteValor()"><i
+                                                class="pe-7s-note2 btn-icon-wrapper"></i>Detalle</button>
+                                        <button class="mb-2 mr-2 btn-icon btn btn-info-mdsb" id="descargaProceso"
+                                            (click)="descargaExcel()"><i
+                                                class="pe-7s-cloud-download btn-icon-wrapper"></i>Excel</button>
+                                        <button class="mb-2 mr-2 btn-icon btn btn-info-mdsb" id="regresarProceso"
+                                            (click)="regresarProceso()"><i
+                                                class="pe-7s-back btn-icon-wrapper"></i>Regresar</button>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="app-wrapper-footer">
+        <div class="app-footer">
+            <div class="app-footer__inner">
+                <div class="app-footer-right">
+                    <ul class="header-megamenu nav">
+                        <li class="nav-item">
+                            <p style="margin: 0px">Municipalidad Distrital de San Borja &copy; 2022</p>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

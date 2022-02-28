@@ -21,6 +21,8 @@ import { NuevoLoteComponent } from './pages/nuevo-lote/nuevo-lote.component';
 import { ListadoContribLoteComponent } from './pages/listado-contrib-lote/listado-contrib-lote.component';
 import { DetalleDeudaLoteComponent } from './pages/detalle-deuda-lote/detalle-deuda-lote.component';
 import { GenerarValoresComponent } from './pages/generar-valores/generar-valores.component';
+import { DetalleLotvalComponent } from './pages/detalle-lotval/detalle-lotval.component';
+import { DetalleDeudaLotvalComponent } from './pages/detalle-deuda-lotval/detalle-deuda-lotval.component';
 
 @NgModule({
   declarations: [
@@ -39,6 +41,8 @@ import { GenerarValoresComponent } from './pages/generar-valores/generar-valores
     ListadoContribLoteComponent,
     DetalleDeudaLoteComponent,
     GenerarValoresComponent,
+    DetalleLotvalComponent,
+    DetalleDeudaLotvalComponent,
   ],
   imports: [
     BrowserModule,

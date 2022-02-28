@@ -8,6 +8,8 @@ import { NuevoLoteComponent } from "./pages/nuevo-lote/nuevo-lote.component";
 import { ListadoContribLoteComponent } from "./pages/listado-contrib-lote/listado-contrib-lote.component";
 import { DetalleDeudaLoteComponent } from "./pages/detalle-deuda-lote/detalle-deuda-lote.component";
 import { GenerarValoresComponent } from "./pages/generar-valores/generar-valores.component";
+import { DetalleLotvalComponent } from "./pages/detalle-lotval/detalle-lotval.component";
+import { DetalleDeudaLotvalComponent } from "./pages/detalle-deuda-lotval/detalle-deuda-lotval.component";
 
 export const ROUTES: Routes = [
   { path: "proceso", component: ProcesoComponent },
@@ -24,6 +26,11 @@ export const ROUTES: Routes = [
     path: "detalle-deuda-lote/:numpro/:numcon",
     component: DetalleDeudaLoteComponent,
   },
+  {
+    path: "deuda-lotval/:anylot/:numlot/:codcon/:tipval",
+    component: DetalleDeudaLotvalComponent,
+  },
+  { path: "detalle-lotval/:anylot/:numlot/:tipval", component: DetalleLotvalComponent },
   { path: "generar-valores", component: GenerarValoresComponent },
   { path: "", pathMatch: "full", redirectTo: "proceso" },
   { path: "**", pathMatch: "full", redirectTo: "proceso" },
