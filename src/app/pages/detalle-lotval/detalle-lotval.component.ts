@@ -121,4 +121,8 @@ export class DetalleLotvalComponent implements OnInit {
     });
   }
 
+  regresarProceso() {
+    this.router.navigate(['/generar-valores']);
+  }
+
 }

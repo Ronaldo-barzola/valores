@@ -122,4 +122,8 @@ export class DetalleDeudaLotvalComponent implements OnInit {
     });
   }
 
+  regresarDetalleLoteValor() {
+    this.router.navigate(["/detalle-lotval", this.p_anylot, this.p_numlot, this.p_tipval]);
+  }
+
 }

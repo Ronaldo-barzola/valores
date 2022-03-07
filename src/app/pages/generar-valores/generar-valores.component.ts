@@ -106,7 +106,7 @@ export class GenerarValoresComponent implements OnInit {
 
   verDetalleLotVal() {
     console.log(this.rowSelected);
-    this.router.navigate(['/detalle-lotval', this.rowSelected[0], this.rowSelected[5], this.rowSelected[6]]);
+    this.router.navigate(['/detalle-lotval', this.rowSelected[0], this.rowSelected[1], this.rowSelected[6]]);
   }
 
   loadDataLoteValor() {

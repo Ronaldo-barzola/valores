@@ -21,25 +21,23 @@
                             <div class="form-row">
                                 <div class="col-md-2">
                                     <div class="position-relative form-group">
-                                        <label for="fb_fecini">Fec. Inicio </label>
-                                        <!-- <input name="fb_fecini" id="fb_fecini" type="date" [ngModel]="fb_fecini | date:'yyyy-MM-dd'" (ngModelChange)="fb_fecini = $event" class="form-control"> -->
+                                        <label for="fb_aniolote">Año Lote </label>
+                                        <input name="fb_aniolote" id="fb_aniolote" type="text" class="form-control">
                                     </div>
                                 </div>
-                                <div class="col-md-2">
+                                <!-- <div class="col-md-2">
                                     <div class="position-relative form-group">
                                         <label for="fb_fecfin">Fec. Fin </label>
-                                        <!-- <input name="fb_fecfin" id="fb_fecfin" type="date" [ngModel]="fb_fecfin | date:'yyyy-MM-dd'" (ngModelChange)="fb_fecfin = $event" class="form-control"> -->
+                                        <input name="fb_fecfin" id="fb_fecfin" type="date" [ngModel]="fb_fecfin | date:'yyyy-MM-dd'" (ngModelChange)="fb_fecfin = $event" class="form-control">
                                     </div>
                                 </div>
                                 <div class="col-md-2">
                                     <div class="position-relative form-group">
                                         <label for="p_numlot">N° Lote </label>
-                                        <!-- <input name="p_numlot" id="p_numlot" type="text" [(ngModel)]="p_numlot" class="form-control"> -->
+                                        <input name="p_numlot" id="p_numlot" type="text" [(ngModel)]="p_numlot" class="form-control">
                                     </div>
-                                </div>
-
+                                </div> -->
                             </div>
-
                             <div class="form-row">
                                 <div class="col-md-12">
                                     <p class="text-left">
@@ -74,11 +72,11 @@
                                         <thead>
                                             <tr style="text-align: center;">
                                                 <th>Año lote</th>
-                                                <th>.</th>
+                                                <th>Lote</th>
                                                 <th>Cant. Registros</th>
                                                 <th>Fecha Proyeccion</th>
                                                 <th>Monto</th>
-                                                <th>Lote</th>
+                                                <th>.</th>
                                                 <th>Tipo Valor</th>
                                                 <th>Total Valores</th>
                                             </tr>
@@ -86,11 +84,11 @@
                                         <tbody>
                                             <tr *ngFor="let item of dataLoteValor" style="text-align: center;">
                                                 <td>{{item.anylot}}</td>
-                                                <td>{{item.canddi}}</td>
+                                                <td>{{item.numlot}}</td>
                                                 <td>{{item.canreg}}</td>
                                                 <td>{{item.fecpry}}</td>
                                                 <td>S/ {{item.montot | number: '1.2-2'}}</td>
-                                                <td>{{item.numlot}}</td>
+                                                <td>{{item.canddi}}</td>                                                
                                                 <td>{{item.tipval}}</td>
                                                 <td>{{item.totval}}</td>
                                             </tr>
