@@ -123,17 +123,15 @@
                                     <div class="col-md-2">
                                         <div class="position-relative form-group">
                                             <label for="fechaProyec">Fecha de Proyección</label>
-                                            <input formControlName="fechaProyec" type="date" class="form-control" [(ngModel)]="fechaProyec" (ngModelChange)="fechaProyec = $event" (change)="cambiaProyeccion()">
+                                            <input formControlName="fechaProyec" type="date" class="form-control" [(ngModel)]="fechaProyec" (ngModelChange)="fechaProyec = $event" (blur)="cambiaProyeccion()">
                                         </div>
                                     </div>
                                 </div>
                                 <div class="form-row">
                                     <div class="col-md-12">
                                         <p class="text-left">
-                                            <button class="mb-2 mr-2 btn-icon btn btn-info btn btn-info-mdsb" (click)="regresarProceso()"><i
-                                                    class="pe-7s-back-2 btn-icon-wrapper"></i>Cancelar</button>
-                                            <button class="mb-2 mr-2 btn-icon btn btn-info btn btn-info-mdsb"><i
-                                                    class="pe-7s-diskette btn-icon-wrapper"></i>Guardar</button>
+                                            <button class="mb-2 mr-2 btn-icon btn btn-info btn btn-info-mdsb" (click)="regresarProceso()"><i class="pe-7s-back-2 btn-icon-wrapper"></i>Cancelar</button>
+                                            <button class="mb-2 mr-2 btn-icon btn btn-info btn btn-info-mdsb"><i class="pe-7s-diskette btn-icon-wrapper"></i>Guardar</button>
                                         </p>
                                     </div>
                                 </div>
