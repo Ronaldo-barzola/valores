@@ -138,7 +138,7 @@
                                             <label for="fechaProyec">Fecha de Proyección</label>
                                             <input formControlName="fechaProyec" type="date" class="form-control"
                                                 [(ngModel)]="fechaProyec" (ngModelChange)="fechaProyec = $event"
-                                                (change)="cambiaProyeccion()">
+                                                (blur)="cambiaProyeccion()">
                                         </div>
                                     </div>
                                 </div>
